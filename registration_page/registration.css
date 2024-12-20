@@ -27,6 +27,7 @@ body {
     border: 1px solid black;
     text-align: center;
     width: 850px;
+    height: 450px;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -66,10 +67,12 @@ h1 span {
     gap: 10px;
     width: 588px;
     color: black;
+    font-family: 'Josefin Sans';
 }
 
 .form input::placeholder {
     color: white;
+    opacity: 75%;
 }
 
 .form button {
@@ -86,12 +89,13 @@ h1 span {
     cursor: pointer;
     color: white;
     border: 1px solid black;
+    font-family: 'Josefin Sans';
 }
 
 .login-link {
     font-size: 32.88px;
     color: #2F008C;
-    text-decoration: none;
+    text-decoration: underline;
     position: absolute;
     bottom: 20px;
     right: 20px;
