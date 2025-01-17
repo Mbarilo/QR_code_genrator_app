@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block links %}
+    <link rel="stylesheet" href="{% static 'styles/registration.css' %}">
+    <link rel="icon" href="{% static 'images/qr-code.ico' %}">
+{% endblock %} 
+
+{% block title %}
+    Create QR-code
+{% endblock %}
+
+{% block content %}
+
+    <header>
+        <div class = "name_and_page_name">
+            <div class= "image_and_page_name">
+                <p class = "page_name">REGISTRATION</p>
+
+            </div>
+        </div>
+
+
+    </header>
+
+    <main>
+
+        <div class="container">
+            <form class= "form" method="post">
+                {% csrf_token %}
+                <input type="text" placeholder="Enter login here..." name = "name">
+                <input type="password" placeholder="Enter password here..." name = "password">
+                <input type="email" placeholder="Enter email here..." name = "email">
+                <button type="submit">Submit</button>
+            </form>
+            <a class="login-link" onclick="location.href = '/login_page/'">-->login</a>
+        </div>
+    </main>
+    <footer>
+        <div class="social-icons">
+            <a href=""><img src="{% static 'images/phone.jpg' %}" alt="Phone"></a>
+            <a href=""><img src="{% static 'images/telegram.jpg' %}" alt="Telegram"></a>
+            <a href=""><img src="{% static 'images/discord.jpg' %}" alt="Discord"></a>
+            <a href=""><img src="{% static 'images/viber.jpg' %}" alt="Viber"></a>
+        </div>
+    </footer>
+{% endblock %}

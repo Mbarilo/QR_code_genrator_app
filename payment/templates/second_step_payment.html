@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block links %}
+    <link rel="stylesheet" href="{% static 'styles/second_step_payment.css' %}">
+    <link rel="icon" href="{% static 'images/qr-code.ico' %}">
+{% endblock %} 
+
+{% block title %}
+    Create QR-code
+{% endblock %}
+
+{% block content %}
+            
+    <header>
+
+    </header>
+
+    <main>
+
+        <div class = "container">
+            <div class = "group_image_and_steps">
+                <div class= "steps">
+                    <img src="{% static 'images/round.png' %}" class = "round">
+                    <img src="{% static 'images/round.png' %}" class = "round">
+                    <img src="{% static 'images/empty_round.png' %}" class = "round">
+                </div>
+                <img src="{% static 'images/step_image2.png' %}" class = "step_image">
+                <p class = "step_name">VERIFICATION</p>
+            </div>
+            
+            <div class = "container_inputs">
+                <input type="text" placeholder= "Enter email here..." class = "input email_input">
+                <input type="text" placeholder= "Enter password here..." class = "input password_input">
+            </div>
+            
+            <a class= "submit" onclick="location.href = '/third_step/'">submit</a>
+        </div>
+
+    </main>
+
+    <footer>
+
+    </footer>
+
+{% endblock %}

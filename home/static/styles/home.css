@@ -1,0 +1,198 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+@font-face {
+    font-family: 'JosefinSans';
+    src: url('/media/fonts/JosefinSans.ttf') format('truetype');
+}
+
+
+body{
+    background-image: url("/media/images/bg.png");
+    background-size: 100%;
+}
+
+body *{
+    font-family: 'JosefinSans';
+}
+
+
+header{
+    width: 100%;
+    height: 156px;
+    display: flex;
+    flex-direction: row;
+    padding-left: 50px;
+    padding-top: 35px;
+    gap: 250px;
+    box-sizing: border-box;
+}
+
+header img{
+    width: 60px;
+    height: 50px;
+    display: flex;
+    align-items: start; 
+}
+
+
+header .name_and_page_name{
+    width: 196px;
+    height: 86px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+
+}
+
+header .name_and_page_name *{
+    font-size: 40px;
+}
+
+header .name{
+    text-decoration: underline;
+    font-weight: 400;
+    font-size: 40px;
+    width: 250px;
+    text-align: end;
+}
+
+
+header .name_and_page_name .image_and_page_name .page_name{
+    font-weight: 600;
+    font-size: 60px;
+}
+
+header .name_and_page_name .image_and_page_name{
+    display: flex;
+    align-items: start;
+    flex-wrap: wrap;
+    /* background-color: blueviolet; */
+    width: 300px;
+}
+
+header .name_and_page_name .image_and_page_name .QR-{
+    color: #67E0AC;
+    font-size: 60px;
+    font-weight: 600;
+}
+header .name_and_page_name .image_and_page_name .code{
+    font-size: 60px;
+    font-weight: 600;
+}
+
+header .buttons{
+    display: flex;
+    flex-direction: row;
+    gap: 32px;
+
+}
+
+header .buttons *{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-left: 30px;
+    padding-top: 10px;
+    padding-right: 30px;
+    font-size: 24px;
+    height: 50px;
+    font-weight: 300;
+    align-items: baseline;
+    border-radius: 50px;
+    background-color: #FFAD7A;
+    box-sizing: border-box;
+    border: 1px solid black;
+}
+
+main{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.pricing-table {
+    display: flex;
+    justify-content: center;
+    max-width: 1200px;
+}
+
+.plan {
+    background: #fff;
+    padding: 20px;
+    text-align: center;
+    width: 375px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    font-size: 51.07px;
+    font-weight: 300;
+}
+
+.plan div {
+    padding: 0;
+    margin: 0;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    list-style: inside;
+    font-size: 32.88px;
+    font-weight: 300;
+}
+
+.button {
+    margin-top: 20px;
+    background-color: #A0F1FF;
+    width: 205px;
+    height: 60px;
+    color: #fff;
+    padding: 15px 20px;
+    font-size: 32.88px;
+    border-radius: 50px;
+    cursor: pointer;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    border: 1px solid black;
+    font-family: 'Josefin Sans';
+    position: absolute;
+    top: 520px;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    height: 150px;
+}
+
+h1, button {
+    font-family: 'Josefin Sans';
+    font-weight: 300;
+}
+
+p {
+    font-family: 'Josefin Sans';
+    font-weight: 300;
+}
+
+.social-icons {
+    display: flex;
+    gap: 50px;
+}
+
+.social-icons a img {
+    width: 50px;
+}
