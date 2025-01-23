@@ -3,160 +3,162 @@
 {% load static %}
 
 {% block links %}
-    <link rel="stylesheet" href="{% static 'styles/contacts.css' %}">
-    <link rel="icon" href="{% static 'images/qr-code.ico' %}">
-{% endblock %} 
+<link rel="stylesheet" href="{% static 'styles/contacts.css' %}">
+<link rel="icon" href="{% static 'images/qr-code.ico' %}">
+{% endblock %}
 
 {% block title %}
-    Create QR-code
+Create QR-code
 {% endblock %}
 
 {% block content %}
-            
-    <header>
-        <div class = "name_and_page_name">
-            <div class= "image_and_page_name">
-                <p class = "page_name">CONTACTS</p>
 
-            </div>
+<header>
+    <div class="name_and_page_name">
+        <div class="image_and_page_name">
+            <p class="page_name">CONTACTS</p>
+
         </div>
-        <div class = "buttons">
-            <a class = "home" onclick="location.href = '/'">home</a>
-            <a class = "create_qr_code" onclick="location.href = '/create_qr_code_page/'">create QR-code</a>
-            <a class = "my_qr_codes" onclick="location.href = '/my_qr_codes_page/'">my QR-codes</a>
-            <a class = "contacts" onclick="location.href = '/contacts_page/'">contacts</a> 
-        </div>
-        <p class = "name">dima</p>
+    </div>
+    <div class="buttons">
+        <a class="home" onclick="location.href = '/'">home</a>
+        <a class="create_qr_code" onclick="location.href = '/create_qr_code_page/'">create QR-code</a>
+        <a class="my_qr_codes" onclick="location.href = '/my_qr_codes_page/'">my QR-codes</a>
+        <a class="contacts" onclick="location.href = '/contacts_page/'">contacts</a>
+    </div>
+    <div class="name_and_image">
+        {% if username == "none" %}
+        <p class="name">{{username}}</p>
+        <a class="logout" onclick="location.href = '/logout_page/'">logout</a>
+        {% endif %}
+    </div>
+</header>
 
-    </header>
 
+<main>
 
-    <main>
-
-        <div class = "container_authors">
-            <div class = "card">
-                <div class = "all_info">
-                    <div class = "photo_and_name">
-                        <img src="{% static 'images/Misha.png' %}" class = "photo">
-                        <p class = "name">MISHA BARYLO</p>
-                    </div>
-                    <div class = "contact_info">
-                        <div class="telephone">
-                            <img src="{% static 'images/telephone.png' %}">
-                            <p class="telephone_number">+380 981 275 564</p>
-                        </div>
-                        <div class="telegram">
-                            <img src="{% static 'images/telegram.png' %}">
-                            <p class="username_telegram">@MAVERICXQ</p>
-                        </div>
-                        <div class="discord">
-                            <img src="{% static 'images/discord.png' %}">
-                            <p class="username_discord">@MAVERICKK</p>
-                        </div>
-                        <div class = "email">
-                            <img src="{% static 'images/email.png' %}">
-                            <p class = "email_adress">Mishabarylo2009@gmail.com</p>
-                        </div>
-                    </div>
+    <div class="container_authors">
+        <div class="card">
+            <div class="all_info">
+                <div class="photo_and_name">
+                    <img src="{% static 'images/Misha.png' %}" class="photo">
+                    <p class="name">MISHA BARYLO</p>
                 </div>
-            </div>
-            
-            <div class = "card">
-                <div class = "all_info">
-                    <div class = "photo_and_name">
-                        <img src="{% static 'images/Felix.png' %}" class = "photo">
-                        <p class = "name">FELIX DENGA</p>
+                <div class="contact_info">
+                    <div class="telephone">
+                        <img src="{% static 'images/telephone.png' %}">
+                        <p class="telephone_number">+380 981 275 564</p>
                     </div>
-                    <div class = "contact_info">
-                        <div class="telephone">
-                            <img src="{% static 'images/telephone.png' %}">
-                            <p class="telephone_number">+380 687 823 770</p>
-                        </div>
-                        <div class="telegram">
-                            <img src="{% static 'images/telegram.png' %}">
-                            <p class="username_telegram">@Feliks_Denga</p>
-                        </div>
-                        <div class="discord">
-                            <img src="{% static 'images/discord.png' %}">
-                            <p class="username_discord">@??????</p>
-                        </div>
-                        <div class = "email">
-                            <img src="{% static 'images/email.png' %}" class = "email_img">
-                            <p class = "email_adress">Felixdenga2009@gmail.com</p>
-                        </div>
+                    <div class="telegram">
+                        <img src="{% static 'images/telegram.png' %}">
+                        <p class="username_telegram">@MAVERICXQ</p>
                     </div>
-                </div>
-            </div>
-
-            <div class = "card">
-                <div class = "all_info">
-                    <div class = "photo_and_name">
-                        <img src="{% static 'images/Dima_Ch.png' %}" class = "photo">
-                        <p class = "name">DIMA CHEPIKOV</p>
+                    <div class="discord">
+                        <img src="{% static 'images/discord.png' %}">
+                        <p class="username_discord">@MAVERICKK</p>
                     </div>
-                    <div class = "contact_info">
-                        <div class="telephone">
-                            <img src="{% static 'images/telephone.png' %}">
-                            <p class="telephone_number">+380 995 391 997</p>
-                        </div>
-                        <div class="telegram">
-                            <img src="{% static 'images/telegram.png' %}">
-                            <p class="username_telegram">@Dima_chep1</p>
-                        </div>
-                        <div class="discord">
-                            <img src="{% static 'images/discord.png' %}">
-                            <p class="username_discord">@ogurtsik</p>
-                        </div>
-                        <div class = "email">
-                            <img src="{% static 'images/email.png' %}">
-                            <p class = "email_adress">Chepdmitriy2011@gmail.com</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class = "card">
-                <div class = "all_info">
-                    <div class = "photo_and_name">
-                        <img src="{% static 'images/Dima_L.png' %}" class = "photo">
-                        <p class = "name">DIMA LOMAKO</p>
-                    </div>
-                    <div class = "contact_info">
-                        <div class="telephone">
-                            <img src="{% static 'images/telephone.png' %}">
-                            <p class="telephone_number">+380 685 255 936</p>
-                        </div>
-                        <div class="telegram">
-                            <img src="{% static 'images/telegram.png' %}">
-                            <p class="username_telegram">@Dima_Lomako</p>
-                        </div>
-                        <div class="discord">
-                            <img src="{% static 'images/discord.png' %}">
-                            <p class="username_discord">@UNKNOWN</p>
-                        </div>
-                        <div class = "email">
-                            <img src="{% static 'images/email.png' %}">
-                            <p class = "email_adress">Dimalomako2008@gmail.com</p>
-                        </div>
+                    <div class="email">
+                        <img src="{% static 'images/email.png' %}">
+                        <p class="email_adress">Mishabarylo2009@gmail.com</p>
                     </div>
                 </div>
             </div>
         </div>
 
-    </main>
+        <div class="card">
+            <div class="all_info">
+                <div class="photo_and_name">
+                    <img src="{% static 'images/Felix.png' %}" class="photo">
+                    <p class="name">FELIX DENGA</p>
+                </div>
+                <div class="contact_info">
+                    <div class="telephone">
+                        <img src="{% static 'images/telephone.png' %}">
+                        <p class="telephone_number">+380 687 823 770</p>
+                    </div>
+                    <div class="telegram">
+                        <img src="{% static 'images/telegram.png' %}">
+                        <p class="username_telegram">@Feliks_Denga</p>
+                    </div>
+                    <div class="discord">
+                        <img src="{% static 'images/discord.png' %}">
+                        <p class="username_discord">@??????</p>
+                    </div>
+                    <div class="email">
+                        <img src="{% static 'images/email.png' %}" class="email_img">
+                        <p class="email_adress">Felixdenga2009@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="all_info">
+                <div class="photo_and_name">
+                    <img src="{% static 'images/Dima_Ch.png' %}" class="photo">
+                    <p class="name">DIMA CHEPIKOV</p>
+                </div>
+                <div class="contact_info">
+                    <div class="telephone">
+                        <img src="{% static 'images/telephone.png' %}">
+                        <p class="telephone_number">+380 995 391 997</p>
+                    </div>
+                    <div class="telegram">
+                        <img src="{% static 'images/telegram.png' %}">
+                        <p class="username_telegram">@Dima_chep1</p>
+                    </div>
+                    <div class="discord">
+                        <img src="{% static 'images/discord.png' %}">
+                        <p class="username_discord">@ogurtsik</p>
+                    </div>
+                    <div class="email">
+                        <img src="{% static 'images/email.png' %}">
+                        <p class="email_adress">Chepdmitriy2011@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="all_info">
+                <div class="photo_and_name">
+                    <img src="{% static 'images/Dima_L.png' %}" class="photo">
+                    <p class="name">DIMA LOMAKO</p>
+                </div>
+                <div class="contact_info">
+                    <div class="telephone">
+                        <img src="{% static 'images/telephone.png' %}">
+                        <p class="telephone_number">+380 685 255 936</p>
+                    </div>
+                    <div class="telegram">
+                        <img src="{% static 'images/telegram.png' %}">
+                        <p class="username_telegram">@Dima_Lomako</p>
+                    </div>
+                    <div class="discord">
+                        <img src="{% static 'images/discord.png' %}">
+                        <p class="username_discord">@UNKNOWN</p>
+                    </div>
+                    <div class="email">
+                        <img src="{% static 'images/email.png' %}">
+                        <p class="email_adress">Dimalomako2008@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</main>
 
 
 
-    <footer>
-            <!-- <span class = "container_images_cotacts"> -->
-        <img src="{% static 'images/telephone.png' %}">
-        <img src="{% static 'images/telegram.png' %}">
-        <img src="{% static 'images/discord.png' %}">
-        <img src="{% static 'images/viber.png' %}">
-        <!-- </span> -->
-    </footer>
+<footer>
+    <!-- <span class = "container_images_cotacts"> -->
+    <img src="{% static 'images/telephone.png' %}">
+    <img src="{% static 'images/telegram.png' %}">
+    <img src="{% static 'images/discord.png' %}">
+    <img src="{% static 'images/viber.png' %}">
+    <!-- </span> -->
+</footer>
 
 
 {% endblock %}
-
-

@@ -4,4 +4,9 @@ from django.shortcuts import render
 
 def render_home(request):
 
-    return render(request, "home.html")
+    if request.user.is_authenticated:
+        username = request.user
+    else:
+        username = "none"
+    
+    return render(request, "home.html", context = {"username" : username})

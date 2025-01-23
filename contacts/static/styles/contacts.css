@@ -1,4 +1,4 @@
-*{
+* {
     padding: 0;
     margin: 0;
 }
@@ -9,16 +9,16 @@
 }
 
 
-body{
+body {
     background-image: url("/media/images/bg.png");
     background-size: 100%;
 }
 
-body *{
+body * {
     font-family: 'JosefinSans';
 }
 
-header{
+header {
     width: 100%;
     height: 156px;
     display: flex;
@@ -29,15 +29,15 @@ header{
     box-sizing: border-box;
 }
 
-header img{
+header img {
     width: 60px;
     height: 50px;
     display: flex;
-    align-items: start; 
+    align-items: start;
 }
 
 
-header .name_and_page_name{
+header .name_and_page_name {
     width: 196px;
     height: 86px;
     display: flex;
@@ -46,25 +46,25 @@ header .name_and_page_name{
 
 }
 
-header .name_and_page_name *{
+header .name_and_page_name * {
     font-size: 40px;
 }
 
-header .name{
+header .name {
     text-decoration: underline;
     font-weight: 400;
     font-size: 40px;
     width: 250px;
-    text-align: end;
+    text-align: center;
 }
 
 
-header .name_and_page_name .image_and_page_name .page_name{
+header .name_and_page_name .image_and_page_name .page_name {
     font-weight: 600;
     font-size: 60px;
 }
 
-header .name_and_page_name .image_and_page_name{
+header .name_and_page_name .image_and_page_name {
     display: flex;
     align-items: start;
     flex-wrap: wrap;
@@ -72,24 +72,68 @@ header .name_and_page_name .image_and_page_name{
     width: 300px;
 }
 
-header .name_and_page_name .image_and_page_name .QR-{
+
+header .name_and_image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+header .name_and_image img {
+    width: 50px;
+    height: 50px;
+}
+
+
+
+header .name_and_image .logout {
+    font-size: 32.88px;
+    width: 175px;
+    height: 45px;
+    background-color: #9AF0FF;
+    border: 1px solid black;
+    border-radius: 70px;
+    color: white;
+    text-align: center;
+    box-sizing: border-box;
+    padding-top: 6px;
+}
+
+
+header .name_and_page_name .image_and_page_name .page_name {
+    font-weight: 600;
+    font-size: 60px;
+}
+
+header .name_and_page_name .image_and_page_name {
+    display: flex;
+    align-items: start;
+    flex-wrap: wrap;
+    /* background-color: blueviolet; */
+    width: 300px;
+}
+
+
+header .name_and_page_name .image_and_page_name .QR- {
     color: #67E0AC;
     font-size: 60px;
     font-weight: 600;
 }
-header .name_and_page_name .image_and_page_name .code{
+
+header .name_and_page_name .image_and_page_name .code {
     font-size: 60px;
     font-weight: 600;
 }
 
-header .buttons{
+header .buttons {
     display: flex;
     flex-direction: row;
     gap: 32px;
 
 }
 
-header .buttons *{
+header .buttons * {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -120,8 +164,8 @@ main {
 main .container_authors {
     display: flex;
     align-items: center;
-    justify-content: flex-start; 
-    gap: 10px; 
+    justify-content: flex-start;
+    gap: 10px;
     padding-left: 25px;
     padding-right: 25px;
     height: 526px;
@@ -129,15 +173,15 @@ main .container_authors {
     border-radius: 50px;
     border: 1px solid black;
     background-color: white;
-    overflow-x: auto; 
-    overflow-y: hidden; 
+    overflow-x: auto;
+    overflow-y: hidden;
 }
 
-main .container_authors .card{
+main .container_authors .card {
     display: flex;
     flex-direction: column;
     align-items: center;
-    flex-shrink: 0;     
+    flex-shrink: 0;
     width: 324px;
     height: 470px;
     background-color: white;
@@ -146,10 +190,10 @@ main .container_authors .card{
     box-sizing: border-box;
 }
 
-main .container_authors .card .all_info{
+main .container_authors .card .all_info {
     display: flex;
     flex-direction: column;
-    align-items: center; 
+    align-items: center;
     width: 300px;
     height: 489px;
     box-sizing: border-box;
@@ -157,30 +201,30 @@ main .container_authors .card .all_info{
     overflow-x: hidden;
 }
 
-main .container_authors .card .photo_and_name{
+main .container_authors .card .photo_and_name {
     width: 275px;
     height: 320px;
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
     gap: 20px;
     align-items: center;
 }
 
-main .container_authors .card .photo{
+main .container_authors .card .photo {
     width: 250px;
     height: 250px;
 }
 
-main .container_authors .card .name{
+main .container_authors .card .name {
     height: 33px;
     font-size: 32px;
-    font-weight: 600;   
+    font-weight: 600;
     display: flex;
     justify-content: center;
 }
 
 
-main .container_authors .card .contact_info .telephone{
+main .container_authors .card .contact_info .telephone {
     width: 280px;
     height: 50px;
     display: flex;
@@ -190,13 +234,14 @@ main .container_authors .card .contact_info .telephone{
     font-weight: 600;
 }
 
-main .container_authors .card .contact_info .telephone .telephone_number{
+main .container_authors .card .contact_info .telephone .telephone_number {
     font-size: 28px;
     width: 230px;
     height: 38px;
     padding-top: 7px;
 }
-main .container_authors .card .contact_info .telegram{
+
+main .container_authors .card .contact_info .telegram {
     width: 280px;
     height: 50px;
     display: flex;
@@ -206,13 +251,14 @@ main .container_authors .card .contact_info .telegram{
     font-weight: 600;
 }
 
-main .container_authors .card .contact_info .telegram .username_telegram{
+main .container_authors .card .contact_info .telegram .username_telegram {
     font-size: 28px;
     width: 203px;
     height: 38px;
     padding-top: 7px;
 }
-main .container_authors .card .contact_info .discord{
+
+main .container_authors .card .contact_info .discord {
     width: 280px;
     height: 50px;
     display: flex;
@@ -222,14 +268,14 @@ main .container_authors .card .contact_info .discord{
     font-weight: 600;
 }
 
-main .container_authors .card .contact_info .discord .username_discord{
+main .container_authors .card .contact_info .discord .username_discord {
     font-size: 28px;
     width: 203px;
     height: 38px;
     padding-top: 7px;
 }
 
-main .container_authors .card .contact_info .discord{
+main .container_authors .card .contact_info .discord {
     width: 280px;
     height: 50px;
     display: flex;
@@ -239,7 +285,7 @@ main .container_authors .card .contact_info .discord{
     font-weight: 600;
 }
 
-main .container_authors .card .contact_info .discord .username_discord{
+main .container_authors .card .contact_info .discord .username_discord {
     font-size: 28px;
     width: 203px;
     height: 38px;
@@ -247,12 +293,12 @@ main .container_authors .card .contact_info .discord .username_discord{
 }
 
 
-main .container_authors .card .contact_info .email img{
+main .container_authors .card .contact_info .email img {
     width: 50px;
     height: 50px;
 }
 
-main .container_authors .card .contact_info .email{
+main .container_authors .card .contact_info .email {
     width: 280px;
     height: 50px;
     display: flex;
@@ -262,32 +308,32 @@ main .container_authors .card .contact_info .email{
     font-weight: 600;
 }
 
-main .container_authors .card .contact_info .discord .email_adress{
+main .container_authors .card .contact_info .discord .email_adress {
     font-size: 28px;
     width: 203px;
     height: 38px;
     padding-top: 7px;
 }
 
-footer{
+footer {
     width: 100%;
     height: 124px;
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding-left: 726px;    
+    padding-left: 726px;
     padding-right: 726px;
     gap: 50px;
     box-sizing: border-box;
 }
 
-footer *{
+footer * {
     width: 50px;
     height: 50px;
 }
 
 
-footer .conteiner_images_contacts{
+footer .conteiner_images_contacts {
     width: 400px;
     display: flex;
 }

@@ -3,52 +3,57 @@
 {% load static %}
 
 {% block links %}
-    <link rel="stylesheet" href="{% static 'styles/my_qr_codes.css' %}">
-    <link rel="icon" href="{% static 'images/qr-code.ico' %}">
-{% endblock %} 
-
-{% block title %}
-    Create QR-code
+<link rel="stylesheet" href="{% static 'styles/my_qr_codes.css' %}">
+<link rel="icon" href="{% static 'images/qr-code.ico' %}">
 {% endblock %}
 
-    
+{% block title %}
+Create QR-code
+{% endblock %}
+
+
 {% block content %}
-                
-    <header>
-        <div class = "name_and_page_name">
-            <div class= "image_and_page_name">
-                <p class = "page_name">MY</p>
-                <img src="{% static 'images/qr-code.png' %}">
-                <p class = "QR-">QR-</p>
-                <p class = "code">CODES</p>
 
-            </div>
-        </div>
-        <div class = "buttons">
-            <a class = "home" onclick="location.href = '/'">home</a>
-            <a class = "create_qr_code" onclick="location.href = '/create_qr_code_page/'">create QR-code</a>
-            <a class = "my_qr_codes" onclick="location.href = '/my_qr_codes_page/'">my QR-codes</a>
-            <a class = "contacts" onclick="location.href = '/contacts_page/'">contacts</a> 
-        </div>
-        <p class = "name">dima</p>
+<header>
+    <div class="name_and_page_name">
+        <div class="image_and_page_name">
+            <p class="page_name">MY</p>
+            <img src="{% static 'images/qr-code.png' %}">
+            <p class="QR-">QR-</p>
+            <p class="code">CODES</p>
 
-    </header>
-
-    <main>
-        <div class="qr-code-container">
-            <div class="qr-code-element">
-                <img src="{% static 'images/Group 4.png' %}">
-                <button class="download-button">Download</button>
-            </div>
-            <input type="text" placeholder="Find with QR-code name...">
         </div>
-    </main>
-    <footer>
-        <img src="{% static 'images/phone-outgoing 1.png' %}" alt="">
-        <img src="{% static 'images/telegram 1.png' %}" alt="">
-        <img src="{% static 'images/discord-icon-svgrepo-com 1.png' %}" alt="">
-        <img src="{% static 'images/viber 1.png' %}" alt="">
-    </footer>
+    </div>
+    <div class="buttons">
+        <a class="home" onclick="location.href = '/'">home</a>
+        <a class="create_qr_code" onclick="location.href = '/create_qr_code_page/'">create QR-code</a>
+        <a class="my_qr_codes" onclick="location.href = '/my_qr_codes_page/'">my QR-codes</a>
+        <a class="contacts" onclick="location.href = '/contacts_page/'">contacts</a>
+    </div>
+    <div class="name_and_image">
+        {% if username == "none" %}
+        <p class="name">{{username}}</p>
+        <a class="logout" onclick="location.href = '/logout_page/'">logout</a>
+        {% endif %}
+        <img src="{% static 'images/user.png' %}">
+    </div>
+</header>
+
+<main>
+    <div class="qr-code-container">
+        <div class="qr-code-element">
+            <img src="{% static 'images/Group 4.png' %}">
+            <button class="download-button">Download</button>
+        </div>
+        <input type="text" placeholder="Find with QR-code name...">
+    </div>
+</main>
+<footer>
+    <img src="{% static 'images/phone-outgoing 1.png' %}" alt="">
+    <img src="{% static 'images/telegram 1.png' %}" alt="">
+    <img src="{% static 'images/discord-icon-svgrepo-com 1.png' %}" alt="">
+    <img src="{% static 'images/viber 1.png' %}" alt="">
+</footer>
 
 
 

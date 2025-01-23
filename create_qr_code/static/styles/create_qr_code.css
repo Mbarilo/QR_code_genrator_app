@@ -1,4 +1,4 @@
-*{
+* {
     padding: 0;
     margin: 0;
 }
@@ -9,16 +9,16 @@
 }
 
 
-body{
+body {
     background-image: url("/media/images/bg.png");
     background-size: 100%;
 }
 
-body *{
+body * {
     font-family: 'JosefinSans';
 }
 
-header{
+header {
     width: 100%;
     height: 156px;
     display: flex;
@@ -29,15 +29,58 @@ header{
     box-sizing: border-box;
 }
 
-header img{
+header img {
     width: 60px;
     height: 50px;
     display: flex;
-    align-items: start; 
+    align-items: start;
 }
 
 
-header .name_and_page_name{
+header .name_and_image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+header .name_and_image img {
+    width: 50px;
+    height: 50px;
+}
+
+
+
+header .name_and_image .logout {
+    font-size: 32.88px;
+    width: 175px;
+    height: 45px;
+    background-color: #9AF0FF;
+    border: 1px solid black;
+    border-radius: 70px;
+    color: white;
+    text-align: center;
+    box-sizing: border-box;
+    padding-top: 6px;
+}
+
+
+header .name_and_page_name .image_and_page_name .page_name {
+    font-weight: 600;
+    font-size: 60px;
+}
+
+header .name_and_page_name .image_and_page_name {
+    display: flex;
+    align-items: start;
+    flex-wrap: wrap;
+    /* background-color: blueviolet; */
+    width: 300px;
+}
+
+
+
+header .name_and_page_name {
     width: 196px;
     height: 86px;
     display: flex;
@@ -46,25 +89,25 @@ header .name_and_page_name{
 
 }
 
-header .name_and_page_name *{
+header .name_and_page_name * {
     font-size: 40px;
 }
 
-header .name{
+header .name {
     text-decoration: underline;
     font-weight: 400;
     font-size: 40px;
     width: 250px;
-    text-align: end;
+    text-align: center;
 }
 
 
-header .name_and_page_name .image_and_page_name .page_name{
+header .name_and_page_name .image_and_page_name .page_name {
     font-weight: 600;
     font-size: 60px;
 }
 
-header .name_and_page_name .image_and_page_name{
+header .name_and_page_name .image_and_page_name {
     display: flex;
     align-items: start;
     flex-wrap: wrap;
@@ -72,24 +115,25 @@ header .name_and_page_name .image_and_page_name{
     width: 300px;
 }
 
-header .name_and_page_name .image_and_page_name .QR-{
+header .name_and_page_name .image_and_page_name .QR- {
     color: #67E0AC;
     font-size: 60px;
     font-weight: 600;
 }
-header .name_and_page_name .image_and_page_name .code{
+
+header .name_and_page_name .image_and_page_name .code {
     font-size: 60px;
     font-weight: 600;
 }
 
-header .buttons{
+header .buttons {
     display: flex;
     flex-direction: row;
     gap: 32px;
 
 }
 
-header .buttons *{
+header .buttons * {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -120,7 +164,7 @@ main {
     gap: 10px;
 }
 
-main .main_container{
+main .main_container {
     border: 1px solid black;
     background-color: white;
     border-radius: 50px;
@@ -132,7 +176,7 @@ main .main_container{
     box-sizing: border-box;
 }
 
-main .buttons{
+main .buttons {
     width: 588px;
     height: 391px;
     display: flex;
@@ -142,7 +186,7 @@ main .buttons{
 
 
 
-main .main_container .buttons *{
+main .main_container .buttons * {
     display: flex;
     width: 588px;
     height: 60px;
@@ -150,8 +194,8 @@ main .main_container .buttons *{
     justify-content: start;
 }
 
-main .main_container .buttons * .input{
-    display: flex;   
+main .main_container .buttons * .input {
+    display: flex;
     width: 588px;
     height: 60px;
     border: 1px solid black;
@@ -160,7 +204,7 @@ main .main_container .buttons * .input{
     padding-left: 30px;
 }
 
-main .main_container .buttons * .input:focus{
+main .main_container .buttons * .input:focus {
     color: white;
     font-size: 20px;
 }
@@ -173,7 +217,7 @@ main .main_container .buttons * .input:focus{
 }
 
 
-main .main_container .buttons * .text{
+main .main_container .buttons * .text {
     width: 350px;
     height: 24px;
     font-size: 24px;
@@ -184,7 +228,7 @@ main .main_container .buttons * .text{
 }
 
 
-main .main_container .buttons * .logo{
+main .main_container .buttons * .logo {
     width: 282px;
     height: 50px;
     border: 1px solid black;
@@ -192,13 +236,13 @@ main .main_container .buttons * .logo{
     background-color: #9AF0FF;
 }
 
-main .main_container .buttons * .logo *{
+main .main_container .buttons * .logo * {
     visibility: hidden;
 }
 
 
 
-main .main_container .buttons .input_logo_btn{
+main .main_container .buttons .input_logo_btn {
     width: 282px;
     height: 50px;
     display: flex;
@@ -206,7 +250,7 @@ main .main_container .buttons .input_logo_btn{
     justify-content: space-around;
 }
 
-main .main_container .buttons * .text_logo_btn{
+main .main_container .buttons * .text_logo_btn {
     width: 110px;
     height: 20px;
     font-size: 20px;
@@ -216,7 +260,7 @@ main .main_container .buttons * .text_logo_btn{
     color: white;
 }
 
-main .main_container .buttons .input_logo .now_uploaded_div{
+main .main_container .buttons .input_logo .now_uploaded_div {
     width: 159px;
     height: 124px;
     display: flex;
@@ -225,7 +269,7 @@ main .main_container .buttons .input_logo .now_uploaded_div{
     flex-direction: column;
 }
 
-main .main_container .buttons .input_logo .now_uploaded_text{
+main .main_container .buttons .input_logo .now_uploaded_text {
     display: flex;
     width: 159px;
     height: 24px;
@@ -236,14 +280,14 @@ main .main_container .buttons .input_logo .now_uploaded_text{
     color: #007771;
 }
 
-main .main_container .buttons .input_logo .now_uploaded_image{
+main .main_container .buttons .input_logo .now_uploaded_image {
     width: 75px;
     height: 75px;
     border: 1px solid black;
     border-radius: 5px;
 }
 
-main .main_container .buttons .input_logo{
+main .main_container .buttons .input_logo {
     width: 556px;
     height: 124px;
     display: flex;
@@ -251,7 +295,7 @@ main .main_container .buttons .input_logo{
 
 }
 
-main .main_container .buttons .input_size p{
+main .main_container .buttons .input_size p {
     width: 282px;
     height: 24px;
     display: flex;
@@ -259,7 +303,7 @@ main .main_container .buttons .input_size p{
 }
 
 
-main .example_qr-code{
+main .example_qr-code {
     width: 300px;
     height: 470px;
     background-color: white;
@@ -273,7 +317,7 @@ main .example_qr-code{
     box-sizing: border-box;
 }
 
-main .example_qr-code .input_name_div p{
+main .example_qr-code .input_name_div p {
     font-size: 20px;
     font-weight: 300;
     color: white;
@@ -281,21 +325,21 @@ main .example_qr-code .input_name_div p{
 }
 
 
-main .example_qr-code .generated_qr-code{
+main .example_qr-code .generated_qr-code {
     width: 200px;
     height: 200px;
 }
 
-main .example_qr-code .input_name_div{
+main .example_qr-code .input_name_div {
     width: 280px;
     height: 69px;
     display: flex;
     justify-content: center;
-    align-items: center; 
+    align-items: center;
 }
 
 
-main .example_qr-code .input_name{
+main .example_qr-code .input_name {
     width: 280px;
     height: 69px;
     background-color: #9AF0FF;
@@ -305,25 +349,25 @@ main .example_qr-code .input_name{
     padding-left: 25px;
 }
 
-main .example_qr-code .input_name::placeholder{
+main .example_qr-code .input_name::placeholder {
     font-size: 20px;
     font-weight: 200;
     opacity: 100%;
 }
 
-main .example_qr-code .input_name:focus{
+main .example_qr-code .input_name:focus {
     font-size: 20px;
     font-weight: 350;
     opacity: 100%;
 }
 
 
-main .example_qr-code .input_name_div{
+main .example_qr-code .input_name_div {
     font-size: 20px;
-    
+
 }
 
-main .example_qr-code .save_btn{
+main .example_qr-code .save_btn {
     width: 250px;
     height: 69px;
     border-radius: 50px;
@@ -336,25 +380,25 @@ main .example_qr-code .save_btn{
 
 
 
-footer{
+footer {
     width: 100%;
     height: 124px;
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding-left: 726px;    
+    padding-left: 726px;
     padding-right: 726px;
     gap: 50px;
     box-sizing: border-box;
 }
 
-footer *{
+footer * {
     width: 50px;
     height: 50px;
 }
 
 
-footer .conteiner_images_contacts{
+footer .conteiner_images_contacts {
     width: 400px;
     display: flex;
 }

@@ -5,4 +5,9 @@ from django.shortcuts import render
 
 def render_create_qr_code_page(request):
 
-    return render(request, "create_qr_code.html")
+    if request.user != "":
+        username = request.user
+    else:
+        username = "none"
+
+    return render(request, "create_qr_code.html", context = {"username" : username})

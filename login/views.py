@@ -1,50 +1,46 @@
 from django.shortcuts import render, redirect
-from registration.models import Users
-from django.contrib.auth import login, authenticate
-
+from django.contrib.auth import login, authenticate, SESSION_KEY
+from django.contrib.auth.models import User
 
 # Create your views here.
 
+
 def render_login_page(request):
+    error = ""
+
+    if request.user.is_authenticated:
+        return redirect("/")
 
     if request.method == "POST":
         name = request.POST.get("name")
-        password = request.POST.get("password")
-        email = request.POST.get("email")
+        password = str(request.POST.get("password"))
+        password_confirm = str(request.POST.get("password_confirm"))
 
-        all_usernames = Users.objects.values("name")
-        all_passwords = Users.objects.values("password")
-        all_emails = Users.objects.values("email")
+        all_usernames = User.objects.values("username")
+        all_passwords = User.objects.values("password")
 
-        usernames = []
-        passwords = []
-        emails = []
-        
-
-
-        for name_index in all_usernames:
-            usernames.append(name_index["name"])
-
-        for password_index in all_passwords:
-            passwords.append(password_index["password"])
-
-        for email_index in all_emails:
-            emails.append(email_index["email"])
-
-        if name in usernames and int(password) in passwords and email in emails:
-            user = authenticate(request, name = name, password = password, email = email)
-            if user:
-                login(request, user)
-            else:
-                print("user is not exist")
-            return redirect("/home/")
-
-        print(usernames)
-        print(passwords)
-        print(emails)
 
         print(name)
         print(password)
-        print(email)
+        print("")
+        print(all_usernames)
+        print(all_passwords)
+        # print(User.password)
 
-    return render(request, "login.html")
+        user = authenticate(request, username = name, password = password)
+
+
+
+        if password == password_confirm:
+            if user != None:
+                
+                    login(request, user)
+                    return redirect("/")
+                
+            else:
+                error = "This user is not exist"
+        else:
+            error = "Password not match"
+        print(error)
+
+    return render(request, "login.html", context = {"error" : error})

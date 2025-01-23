@@ -26,6 +26,7 @@ from login.views import render_login_page
 from my_qr_codes.views import render_my_qr_codes_page
 from registration.views import render_registration
 from contacts.views import render_contact_page
+from logout_page.views import render_logout_page
 
 
 urlpatterns = [
@@ -36,7 +37,8 @@ urlpatterns = [
     path("my_qr_codes_page/", render_my_qr_codes_page, name = "my_qr_codes"),
     path('', include('payment.urls')),
     path('registration/', render_registration),
-    path('contacts_page/', render_contact_page)
+    path('contacts_page/', render_contact_page),
+    path('logout_page/', render_logout_page, name = "logout")
 ]
 
 
