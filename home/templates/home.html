@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block links %}
+<link rel="stylesheet" href="{% static 'styles/home.css' %}">
+<link rel="icon" href="{% static 'images/qr-code.ico' %}">
+{% endblock %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block content %}
+
+<header>
+  <div class="name_and_page_name">
+    <div class="image_and_page_name">
+      <p class="page_name">HOME</p>
+      <p class="page_name">PAGE</p>
+
+    </div>
+  </div>
+  <div class="buttons">
+    <a class="home" onclick="location.href = '/'">home</a>
+    <a class="create_qr_code" onclick="location.href = '/create_qr_code_page/'">create QR-code</a>
+    <a class="my_qr_codes" onclick="location.href = '/my_qr_codes_page/'">my QR-codes</a>
+    <a class="contacts" onclick="location.href = '/contacts_page/'">contacts</a>
+  </div>
+  <div class="name_and_image">
+    {% if username != "none" %}
+    <p class="name">{{username}}</p>
+    <a class="logout" onclick="location.href = '/logout_page/'">logout</a>
+    {% endif %}
+  </div>
+
+</header>
+
+
+<main>
+  <div class="pricing-table">
+    <div class="plan">
+      <p>free</p>
+      <div>
+        <p>• available after registration</p>
+        <p>• one QR-code is allowed for 6 months</p>
+      </div>
+      <a class="button" onclick="location.href = '/registration/'">registration</a>
+    </div>
+    <div class="plan">
+      <p>standart</p>
+      <div>
+        <p>• cost: 2$ per month</p>
+        <p>• maximum 10 QR-codes</p>
+      </div>
+      <a class="button" onclick="location.href = '/first_step/'">subscribe</a>
+    </div>
+    <div class="plan">
+      <p>pro</p>
+      <div>
+        <p>• cost: 10$ per month</p>
+        <p>• maximum 100 QR-codes</p>
+      </div>
+      <a class="button" onclick="location.href = '/first_step/'">subscribe</a>
+    </div>
+  </div>
+</main>
+
+
+<footer>
+  <div class="social-icons">
+    <a href=""><img src="{% static 'images/phone.jpg' %}" alt="Phone"></a>
+    <a href=""><img src="{% static 'images/telegram.jpg' %}" alt="Telegram"></a>
+    <a href=""><img src="{% static 'images/discord.jpg' %}" alt="Discord"></a>
+    <a href=""><img src="{% static 'images/viber.jpg' %}" alt="Viber"></a>
+  </div>
+</footer>
+
+{% endblock %}
