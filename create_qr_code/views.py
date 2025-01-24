@@ -5,7 +5,7 @@ from django.shortcuts import render
 
 def render_create_qr_code_page(request):
 
-    if request.user != "":
+    if request.user.is_authenticated:
         username = request.user
     else:
         username = "none"

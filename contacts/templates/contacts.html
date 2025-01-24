@@ -27,7 +27,7 @@ Create QR-code
         <a class="contacts" onclick="location.href = '/contacts_page/'">contacts</a>
     </div>
     <div class="name_and_image">
-        {% if username == "none" %}
+        {% if username != "none" %}
         <p class="name">{{username}}</p>
         <a class="logout" onclick="location.href = '/logout_page/'">logout</a>
         {% endif %}

@@ -34,9 +34,12 @@ Create QR-code
         <form method="post">
             {% csrf_token %}
             <div class="container_inputs">
-                <input type="text" placeholder="Enter email here..." class="input email_input">
-                <input type="text" placeholder="Enter password here..." class="input password_input">
+                <input type="text" placeholder="Enter email here..." class="input email_input" name="email">
+                <input type="password" placeholder="Enter password here..." class="input password_input"
+                    name="password">
             </div>
+
+            <p class="error">{{error}}</p>
 
             <button class="submit" onclick="location.href = '/second_step/'" type="submit">submit</button>
         </form>

@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 
 def render_my_qr_codes_page(request):
     
-    if request.user != "":
+    if request.user.is_authenticated:
         username = request.user
     else:
         username = "none"
