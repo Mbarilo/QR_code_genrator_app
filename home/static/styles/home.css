@@ -46,6 +46,10 @@ header .page_name {
     font-family: 'JosefinSans';
 }
 
+header .name_and_image .name {
+    font-family: 'JosefinSans';
+}
+
 header .name_and_page_name {
     width: 196px;
     height: 86px;

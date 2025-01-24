@@ -9,10 +9,11 @@ import random
 # Create your views here.
 
 
-error = ""
+
 
 def render_first_step_payment_page(request):
 
+    error = ""
 
     user_now = request.user
 
@@ -63,7 +64,7 @@ def render_first_step_payment_page(request):
 
 
 def render_second_step_payment_page(request):
-    global error
+    error = ""
     user_now = request.user
 
     if request.method == "POST":
@@ -88,4 +89,5 @@ def render_second_step_payment_page(request):
     
 
 def render_third_step_payment_page(request):
+    error = ""
     return render(request, "third_step_payment.html", context = {"error" : error})

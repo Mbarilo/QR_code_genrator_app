@@ -15,19 +15,21 @@ Authorization
 
 <header>
     <div class="name_and_page_name">
-        <div class="image_and_page_name">
-            <p class="page_name">LOGIN</p>
 
-        </div>
     </div>
     <div class="buttons">
+        <a onclick="location.href = '/registration/'" class="login-link"></a>
     </div>
 
 </header>
 
 
+<div class="image_and_page_name">
+    <p class="page_name">LOGIN</p>
+</div>
 
 <div class="container">
+
     <form class="form" method="post">
         {% csrf_token %}
         <input type="text" placeholder="Enter login here..." name="name" required>
@@ -37,6 +39,8 @@ Authorization
         <p>{{error}}</p>
         <button>Submit</button>
     </form>
+
+
 
     <a onclick="location.href = '/registration/'" class="login-link">-->registration</a>
 </div>

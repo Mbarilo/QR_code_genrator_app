@@ -59,17 +59,18 @@ header .name {
 }
 
 
-header .name_and_page_name .image_and_page_name .page_name {
+main .image_and_page_name .page_name {
     font-weight: 600;
     font-size: 60px;
 }
 
-header .name_and_page_name .image_and_page_name {
+.image_and_page_name {
     display: flex;
-    align-items: start;
+    align-items: center;
+    justify-content: center;
     flex-wrap: wrap;
     /* background-color: blueviolet; */
-    width: 300px;
+    width: 100%;
 }
 
 header .name_and_page_name .image_and_page_name .QR- {
