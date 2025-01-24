@@ -36,6 +36,7 @@ urlpatterns = [
     path('login_page/', render_login_page, name = "login"),
     path("my_qr_codes_page/", render_my_qr_codes_page, name = "my_qr_codes"),
     path('', include('payment.urls')),
+    path('', include('payment_pro.urls')),
     path('registration/', render_registration),
     path('contacts_page/', render_contact_page),
     path('logout_page/', render_logout_page, name = "logout")

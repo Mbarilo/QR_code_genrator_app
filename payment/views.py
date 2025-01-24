@@ -9,10 +9,10 @@ import random
 # Create your views here.
 
 
-error = ""
+
 
 def render_first_step_payment_page(request):
-
+    error = ""
 
     user_now = request.user
 
@@ -44,7 +44,7 @@ def render_first_step_payment_page(request):
                         recipient_list= [f"{email_input}"],
                         fail_silently= False
                     )
-                    return redirect("/second_step/")
+                    return redirect("/second_step_pro/")
                 except: 
                     error = "email is not exist"
             else:
@@ -63,7 +63,7 @@ def render_first_step_payment_page(request):
 
 
 def render_second_step_payment_page(request):
-    global error
+    error = ""
     user_now = request.user
 
     if request.method == "POST":
@@ -75,7 +75,7 @@ def render_second_step_payment_page(request):
             print(secret_code_model)
 
             if secret_code_input == secret_code_model:
-                return redirect("/third_step/")
+                return redirect("/third_step_pro/")
             else:
                 error = "incorrect code"
                 
@@ -88,4 +88,5 @@ def render_second_step_payment_page(request):
     
 
 def render_third_step_payment_page(request):
+    error = ""
     return render(request, "third_step_payment.html", context = {"error" : error})

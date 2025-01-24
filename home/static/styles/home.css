@@ -143,6 +143,10 @@ header .buttons * {
     box-sizing: border-box;
     border: 1px solid black;
 }
+.buttons a:hover{
+    background-color: #fa8c60;
+    cursor: pointer;
+}
 
 main {
     flex: 1;
@@ -204,6 +208,9 @@ main {
     font-family: 'Josefin Sans';
     position: absolute;
     top: 520px;
+}
+.button:hover{
+    background-color: #72dbee;
 }
 
 footer {
