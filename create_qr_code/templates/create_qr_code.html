@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block links %}
+<link rel="stylesheet" href="{% static 'styles/create_qr_code.css' %}">
+<link rel="icon" href="{% static 'images/qr-code.ico' %}">
+{% endblock %}
+
+{% block title %}
+Create QR-code
+{% endblock %}
+
+{% block content %}
+
+<header>
+    <div class="name_and_page_name">
+        <div class="image_and_page_name">
+            <p class="page_name">CREATE</p>
+            <img src="{% static 'images/qr-code.png' %}">
+            <p class="QR-">QR-</p>
+            <p class="code">CODE</p>
+
+        </div>
+    </div>
+    <div class="buttons">
+        <a class="home" onclick="location.href = '/'">home</a>
+        <a class="create_qr_code" onclick="location.href = '/create_qr_code_page/'">create QR-code</a>
+        <a class="my_qr_codes" onclick="location.href = '/my_qr_codes_page/'">my QR-codes</a>
+        <a class="contacts" onclick="location.href = '/contacts_page/'">contacts</a>
+    </div>
+    <div class="name_and_image">
+        {% if username != "none" %}
+        <p class="name">{{username}}</p>
+        <a class="logout" onclick="location.href = '/logout_page/'">Logout</a>
+        {% endif %}
+
+    </div>
+</header>
+
+
+
+
+<main>
+
+    <div class="main_container">
+        <div class="buttons">
+            <div class="input_color">
+                <input type="text" class="input" placeholder="Enter your QR-code color here...">
+            </div>
+
+            <div class="input_URL">
+                <input type="text" class="input" placeholder="Enter your URL-address here...">
+            </div>
+
+            <div class="input_logo">
+                <div class="input_logo_btn">
+                    <input type="file" class="logo" id="upload" hidden>
+                    <p class="text_logo_btn">
+                        upload_logo
+                    </p>
+                </div>
+
+                <div class="now_uploaded_div">
+                    <label for="upload" class="now_uploaded_text">
+                        now uploaded:
+                    </label>
+                    <div class="now_uploaded_image">
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="input_size">
+                <input type="text" class="input" placeholder="Enter QR-code size here...">
+            </div>
+        </div>
+    </div>
+
+    <div class="example_qr-code">
+        <img src="{% static 'images/generated_qr-code.png' %}" class="generated_qr-code">
+        <div class="input_name_div">
+            <input type="text" class="input_name" placeholder="Enter QR-code name here...">
+        </div>
+        <button class="save_btn">Save</button>
+    </div>
+
+
+
+</main>
+
+
+<footer>
+    <!-- <span class = "container_images_cotacts"> -->
+    <img src="{% static 'images/telephone.png' %}">
+    <img src="{% static 'images/telegram.png' %}">
+    <img src="{% static 'images/discord.png' %}">
+    <img src="{% static 'images/viber.png' %}">
+    <!-- </span> -->
+</footer>
+
+{% endblock %}
