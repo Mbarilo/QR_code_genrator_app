@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 # Create your views here.
 
@@ -9,5 +9,6 @@ def render_create_qr_code_page(request):
         username = request.user
     else:
         username = "none"
+        return redirect("/")
 
     return render(request, "create_qr_code.html", context = {"username" : username})

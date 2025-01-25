@@ -133,6 +133,11 @@ header .buttons {
 
 }
 
+.buttons a:hover{
+    background-color: #fa8c60;
+    cursor: pointer;
+}
+
 header .buttons * {
     display: flex;
     flex-direction: row;
@@ -148,6 +153,7 @@ header .buttons * {
     background-color: #FFAD7A;
     box-sizing: border-box;
     border: 1px solid black;
+    cursor: pointer;
 }
 
 
