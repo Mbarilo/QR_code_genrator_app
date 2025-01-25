@@ -36,7 +36,7 @@ def render_first_step_payment_page(request):
                     RandomCodes.objects.create(random_code = random_code_obj, user = user_now)
                 except:
                     RandomCodes.objects.get(user_id = user_now.id).delete()
-                    # RandomCodes.objects.create(random_code = random_code_obj, user = user_now)
+                    RandomCodes.objects.create(random_code = random_code_obj, user = user_now)
                 try:
                     send_mail(
                         subject= "Your check code to qr-code generator",
