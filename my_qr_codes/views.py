@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
+from create_qr_code.models import QrCodes
 
 # Create your views here.
 
@@ -9,5 +10,24 @@ def render_my_qr_codes_page(request):
         username = request.user
     else:
         username = "none"
+        return redirect("/")
 
-    return render(request, "my_qr_codes.html", context = {"username" : username})
+    qr_codes = QrCodes.objects.filter(user_id = username.id)
+    qr_codes_pathes = []
+
+    for qr_code in qr_codes:
+        qr_codes_pathes.append(qr_code.image)
+
+    if request.method == "POST":
+        deleleted_qr_code = request.POST.get("delete")
+
+        print(deleleted_qr_code)
+
+        if deleleted_qr_code != None:
+
+            QrCodes.objects.get(id = deleleted_qr_code).delete()
+            return redirect("/my_qr_codes_page/")
+
+
+
+    return render(request, "my_qr_codes.html", context = {"username" : username, "qr_codes": qr_codes})

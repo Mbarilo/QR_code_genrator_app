@@ -133,7 +133,13 @@ header .buttons {
 
 }
 
-header .buttons * {
+
+.buttons a:hover {
+    background-color: #fa8c60;
+    cursor: pointer;
+}
+
+header .buttons a {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -148,6 +154,7 @@ header .buttons * {
     background-color: #FFAD7A;
     box-sizing: border-box;
     border: 1px solid black;
+    cursor: pointer;
 }
 
 
@@ -155,7 +162,7 @@ header .buttons * {
 
 
 
-main {
+main form {
     width: 100%;
     height: 645px;
     display: flex;
@@ -164,7 +171,7 @@ main {
     gap: 10px;
 }
 
-main .main_container {
+main form .main_container {
     border: 1px solid black;
     background-color: white;
     border-radius: 50px;
@@ -174,9 +181,10 @@ main .main_container {
     display: flex;
     justify-content: center;
     box-sizing: border-box;
+    overflow-y: scroll;
 }
 
-main .buttons {
+main form .buttons {
     width: 588px;
     height: 391px;
     display: flex;
@@ -186,7 +194,7 @@ main .buttons {
 
 
 
-main .main_container .buttons * {
+main form .main_container .buttons * {
     display: flex;
     width: 588px;
     height: 60px;
@@ -194,7 +202,7 @@ main .main_container .buttons * {
     justify-content: start;
 }
 
-main .main_container .buttons * .input {
+main form .main_container .buttons * .input {
     display: flex;
     width: 588px;
     height: 60px;
@@ -204,7 +212,12 @@ main .main_container .buttons * .input {
     padding-left: 30px;
 }
 
-main .main_container .buttons * .input:focus {
+
+
+
+
+
+main form .main_container .buttons * .input:focus {
     color: white;
     font-size: 20px;
 }
@@ -217,7 +230,7 @@ main .main_container .buttons * .input:focus {
 }
 
 
-main .main_container .buttons * .text {
+main form .main_container .buttons * .text {
     width: 350px;
     height: 24px;
     font-size: 24px;
@@ -228,7 +241,7 @@ main .main_container .buttons * .text {
 }
 
 
-main .main_container .buttons * .logo {
+main form .main_container .buttons * .logo {
     width: 282px;
     height: 50px;
     border: 1px solid black;
@@ -236,31 +249,22 @@ main .main_container .buttons * .logo {
     background-color: #9AF0FF;
 }
 
-main .main_container .buttons * .logo * {
+main form .main_container .buttons * .logo * {
     visibility: hidden;
 }
 
 
 
-main .main_container .buttons .input_logo_btn {
+main form .main_container .buttons .input_logo_btn {
     width: 282px;
     height: 50px;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    background-color: darkcyan;
 }
 
-main .main_container .buttons * .text_logo_btn {
-    width: 110px;
-    height: 20px;
-    font-size: 20px;
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    color: white;
-}
 
-main .main_container .buttons .input_logo .now_uploaded_div {
+main form .main_container .buttons .input_logo .now_uploaded_div {
     width: 159px;
     height: 124px;
     display: flex;
@@ -269,7 +273,7 @@ main .main_container .buttons .input_logo .now_uploaded_div {
     flex-direction: column;
 }
 
-main .main_container .buttons .input_logo .now_uploaded_text {
+main form .main_container .buttons .input_logo .now_uploaded_text {
     display: flex;
     width: 159px;
     height: 24px;
@@ -280,14 +284,14 @@ main .main_container .buttons .input_logo .now_uploaded_text {
     color: #007771;
 }
 
-main .main_container .buttons .input_logo .now_uploaded_image {
+main form .main_container .buttons .input_logo .now_uploaded_image {
     width: 75px;
     height: 75px;
     border: 1px solid black;
     border-radius: 5px;
 }
 
-main .main_container .buttons .input_logo {
+main form .main_container .buttons .input_logo {
     width: 556px;
     height: 124px;
     display: flex;
@@ -295,7 +299,7 @@ main .main_container .buttons .input_logo {
 
 }
 
-main .main_container .buttons .input_size p {
+main form .main_container .buttons .input_size p {
     width: 282px;
     height: 24px;
     display: flex;
@@ -303,7 +307,7 @@ main .main_container .buttons .input_size p {
 }
 
 
-main .example_qr-code {
+main form .example_qr-code {
     width: 300px;
     height: 470px;
     background-color: white;
@@ -317,7 +321,7 @@ main .example_qr-code {
     box-sizing: border-box;
 }
 
-main .example_qr-code .input_name_div p {
+main form .example_qr-code .input_name_div p {
     font-size: 20px;
     font-weight: 300;
     color: white;
@@ -325,12 +329,12 @@ main .example_qr-code .input_name_div p {
 }
 
 
-main .example_qr-code .generated_qr-code {
+main form .example_qr-code .generated_qr-code {
     width: 200px;
     height: 200px;
 }
 
-main .example_qr-code .input_name_div {
+main form .example_qr-code .input_name_div {
     width: 280px;
     height: 69px;
     display: flex;
@@ -339,7 +343,7 @@ main .example_qr-code .input_name_div {
 }
 
 
-main .example_qr-code .input_name {
+main form .example_qr-code .input_name {
     width: 280px;
     height: 69px;
     background-color: #9AF0FF;
@@ -349,25 +353,25 @@ main .example_qr-code .input_name {
     padding-left: 25px;
 }
 
-main .example_qr-code .input_name::placeholder {
+main form .example_qr-code .input_name::placeholder {
     font-size: 20px;
     font-weight: 200;
     opacity: 100%;
 }
 
-main .example_qr-code .input_name:focus {
+main form .example_qr-code .input_name:focus {
     font-size: 20px;
     font-weight: 350;
     opacity: 100%;
 }
 
 
-main .example_qr-code .input_name_div {
+main form .example_qr-code .input_name_div {
     font-size: 20px;
 
 }
 
-main .example_qr-code .save_btn {
+main form .example_qr-code .save_btn {
     width: 250px;
     height: 69px;
     border-radius: 50px;

@@ -24,6 +24,7 @@ Create QR-code
 
         </div>
     </div>
+    {% if username != "none" %}
     <div class="buttons">
         <a class="home" onclick="location.href = '/'">home</a>
         <a class="create_qr_code" onclick="location.href = '/create_qr_code_page/'">create QR-code</a>
@@ -31,20 +32,35 @@ Create QR-code
         <a class="contacts" onclick="location.href = '/contacts_page/'">contacts</a>
     </div>
     <div class="name_and_image">
-        {% if username != "none" %}
         <p class="name">{{username}}</p>
         <a class="logout" onclick="location.href = '/logout_page/'">logout</a>
-        {% endif %}
         <img src="{% static 'images/user.png' %}">
     </div>
+    {% else %}
+    <div class="buttons">
+        <a class="my_qr_codes" onclick="location.href = '/registration/'">registration</a>
+        <a class="contacts" onclick="location.href = '/login_page/'">login</a>
+    </div>
+    {% endif %}
 </header>
 
 <main>
     <div class="qr-code-container">
-        <div class="qr-code-element">
-            <img src="{% static 'images/Group 4.png' %}">
-            <button class="download-button">Download</button>
-        </div>
+        {% for qr_code in qr_codes %}
+        <form method="post">
+            {% csrf_token %}
+            <div class="qr-code-element">
+                <div class="qr-code_and_delete">
+                    <img src="{{qr_code.image}}" class="qr-code">
+                    <button type="submit" name="delete" value="{{qr_code.id}}">
+                        <img src="{% static 'images/delete.png' %}" class="delete">
+                    </button>
+                </div>
+                <p class="qr_code_name">{{qr_code.name}}</p>
+                <a class="download-button" href="{{qr_code.image}}" download="GFG">Download</a>
+            </div>
+        </form>
+        {% endfor %}
         <input type="text" placeholder="Find with QR-code name...">
     </div>
 </main>

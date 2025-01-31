@@ -118,6 +118,11 @@ header .buttons {
 
 }
 
+.buttons a:hover {
+    background-color: #fa8c60;
+    cursor: pointer;
+}
+
 header .buttons * {
     display: flex;
     flex-direction: row;
@@ -133,6 +138,7 @@ header .buttons * {
     background-color: #FFAD7A;
     box-sizing: border-box;
     border: 1px solid black;
+    cursor: pointer;
 }
 
 
@@ -154,6 +160,8 @@ main {
     padding-left: 25px;
     align-items: center;
     border: 1px solid black;
+    gap: 25px;
+    overflow-x: scroll;
 }
 
 .qr-code-element {
@@ -167,23 +175,34 @@ main {
     justify-content: space-around;
 }
 
-.qr-code-element img {
+.qr-code-element .qr-code {
     width: 200px;
     height: 200px;
+}
+
+.qr-code-element .delete {
+    width: 50px;
+    height: 50px;
+}
+
+.qr-code-element .qr-code_and_delete {
+    display: flex;
+    align-items: start;
+    justify-content: end;
+    width: 300px;
+    /* background-color: darkblue; */
 }
 
 input {
     width: 250px;
     height: 53px;
     border-radius: 50px;
-    position: absolute;
-    right: 20px;
-    top: 20px;
+    position: fixed;
+    right: 150px;
+    top: 150px;
     padding: 15px;
     padding-right: 45px;
     font-size: 15px;
-    background-repeat: no-repeat;
-    background-position: right 15px center;
 }
 
 .download-button {
