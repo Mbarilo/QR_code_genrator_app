@@ -14,7 +14,6 @@ def render_login_page(request):
     if request.method == "POST":
         name = request.POST.get("name")
         password = str(request.POST.get("password"))
-        password_confirm = str(request.POST.get("password_confirm"))
 
         all_usernames = User.objects.values("username")
         all_passwords = User.objects.values("password")
@@ -26,21 +25,18 @@ def render_login_page(request):
         print(all_usernames)
         print(all_passwords)
         # print(User.password)
-
+        
         user = authenticate(request, username = name, password = password)
 
 
 
-        if password == password_confirm:
-            if user != None:
-                
-                    login(request, user)
-                    return redirect("/")
-                
-            else:
-                error = "This user is not exist"
+
+        if user != None:
+            
+                login(request, user)
+                return redirect("/")
+            
         else:
-            error = "Password not match"
-        print(error)
+            error = "This user is not exist"
 
     return render(request, "login.html", context = {"error" : error})

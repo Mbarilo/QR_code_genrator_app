@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.db import IntegrityError
 from .models import QrCodes
-
+from qrcode.image.styles.moduledrawers.pil import CircleModuleDrawer
 
 import qrcode
 import os
@@ -31,12 +31,12 @@ def render_create_qr_code_page(request):
         qr_code.make()
         
         try:
-            img = qr_code.make_image(fill_color = qr_code_color, back_color = qr_code_back_color)
+            img = qr_code.make_image(fill_color = qr_code_color, back_color = qr_code_back_color, module_drawer=CircleModuleDrawer())
             img.save(os.path.abspath(__file__ + "/../../media/qr_codes/demo/qrcode.png"))
         except ValueError:
             qr_code_back_color = "white"
             qr_code_color = "black"
-            img = qr_code.make_image(fill_color = qr_code_color, back_color = qr_code_back_color)
+            img = qr_code.make_image(fill_color = qr_code_color, back_color = qr_code_back_color, module_drawer=CircleModuleDrawer(resample_method=None))
             img.save(os.path.abspath(__file__ + "/../../media/qr_codes/demo/qrcode.png"))
 
         if "save" in request.POST:

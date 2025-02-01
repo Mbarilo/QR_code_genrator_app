@@ -212,14 +212,18 @@ main form .main_container .buttons * .input {
     padding-left: 30px;
 }
 
+.text-color {
+    font-size: 25px;
+}
 
-
-
-
-
-main form .main_container .buttons * .input:focus {
-    color: white;
-    font-size: 20px;
+main form .main_container .buttons * .color {
+    display: flex;
+    width: 588px;
+    height: 60px;
+    border: 1px solid black;
+    border-radius: 50px;
+    background-color: #9AF0FF;
+    padding-left: 2px;
 }
 
 
