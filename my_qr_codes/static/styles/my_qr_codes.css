@@ -217,6 +217,20 @@ input {
     border: 1px solid black;
 }
 
+.finder {
+    display: flex;
+    justify-content: space-between;
+    background-color: cadetblue;
+}
+
+.finder img {
+    position: fixed;
+    right: 165px;
+    top: 160px;
+    width: 25px;
+    height: 25px;
+}
+
 footer {
     height: 156px;
     width: 100%;

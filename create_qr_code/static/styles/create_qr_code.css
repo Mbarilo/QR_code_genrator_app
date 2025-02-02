@@ -221,9 +221,6 @@ main form .main_container .buttons * .color {
     width: 588px;
     height: 60px;
     border: 1px solid black;
-    border-radius: 50px;
-    background-color: #9AF0FF;
-    padding-left: 2px;
 }
 
 
@@ -264,7 +261,6 @@ main form .main_container .buttons .input_logo_btn {
     height: 50px;
     display: flex;
     align-items: center;
-    background-color: darkcyan;
 }
 
 

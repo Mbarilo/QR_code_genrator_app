@@ -1,11 +1,13 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
+import os
 # Create your views here.
 
 
 
 def render_registration(request):
     error = ""
+
 
     if request.user.is_authenticated:
         return redirect("/")
@@ -19,6 +21,7 @@ def render_registration(request):
         if password == password_confirm:
             try:
                 User.objects.create_user(username = name, password = password, email = email)
+                os.makedirs(os.path.abspath(__file__ + f"/../../media/qr_codes/image/{name}"))
                 return redirect("/login_page/")
             except:
                 error = "this user already registred"

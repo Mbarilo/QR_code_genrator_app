@@ -15,6 +15,7 @@ def render_my_qr_codes_page(request):
         return redirect("/")
 
     qr_codes = QrCodes.objects.filter(user_id = username.id)
+    finded_qr_codes = []
     qr_codes_pathes = []
 
     for qr_code in qr_codes:
@@ -23,15 +24,26 @@ def render_my_qr_codes_page(request):
     if request.method == "POST":
         deleleted_qr_code = request.POST.get("delete")
 
-        qr_code_name = QrCodes.objects.get(id = deleleted_qr_code).name
+        find_input = request.POST.get("find_input")
+
+
+        if "find" in request.POST:
+            # qr_codes = []
+            for qr_code in qr_codes:
+                if find_input in qr_code.name:
+                    finded_qr_codes.append(qr_code)
+
 
         if deleleted_qr_code != None:
+            qr_code_name = QrCodes.objects.get(id = deleleted_qr_code).name
 
             QrCodes.objects.get(id = deleleted_qr_code).delete()
-            os.remove(os.path.abspath(__file__ + f"/../../media/qr_codes/image/{username}_{qr_code_name}.png"))
+            os.remove(os.path.abspath(__file__ + f"/../../media/qr_codes/image/{username}/{qr_code_name}.png"))
 
             return redirect("/my_qr_codes_page/")
 
 
-
-    return render(request, "my_qr_codes.html", context = {"username" : username, "qr_codes": qr_codes})
+    if "find" in request.POST:
+        return render(request, "my_qr_codes.html", context = {"username" : username, "qr_codes": finded_qr_codes})
+    if "find" not in request.POST:
+        return render(request, "my_qr_codes.html", context = {"username" : username, "qr_codes": qr_codes})
