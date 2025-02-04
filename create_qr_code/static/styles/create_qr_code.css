@@ -242,16 +242,20 @@ main form .main_container .buttons * .text {
 }
 
 
-main form .main_container .buttons * .logo {
+main form .main_container .buttons .logo {
+    opacity: 0;
+}
+
+main form .main_container .buttons * .logo_label {
     width: 282px;
     height: 50px;
     border: 1px solid black;
     border-radius: 50px;
-    background-color: #9AF0FF;
-}
-
-main form .main_container .buttons * .logo * {
-    visibility: hidden;
+    background-color: #9AF0FF;  
+    text-align: center;
+    justify-content: center;
+    color: white;
+    font-size: 20px;
 }
 
 
