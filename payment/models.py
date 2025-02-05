@@ -8,3 +8,6 @@ from django.contrib.auth.models import User
 class RandomCodes(models.Model):
     random_code = models.CharField(max_length= 6)
     user = models.OneToOneField(to= User, on_delete= models.CASCADE)
+    
+    def __str__(self):
+        return self.random_code

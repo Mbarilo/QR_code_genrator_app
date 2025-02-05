@@ -9,3 +9,6 @@ class QrCodes(models.Model):
     image = models.TextField(default= "none")
     user = models.ForeignKey(User, models.CASCADE)
     date = models.DateField(default= datetime.date.today())
+    
+    def __str__(self):
+        return self.name
