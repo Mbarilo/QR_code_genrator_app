@@ -2,7 +2,8 @@ from django.shortcuts import render, redirect
 from payment.models import RandomCodes
 from django.core.mail import send_mail
 from django.contrib.auth.hashers import check_password
-
+from django.contrib.auth.models import User
+from registration.models import Profile
 import random
 
 
@@ -75,7 +76,7 @@ def render_second_step_payment_pro_page(request):
             print(secret_code_model)
 
             if secret_code_input == secret_code_model:
-                return redirect("/third_step/")
+                return redirect("/third_step_pro/")
             else:
                 error = "incorrect code"
                 
@@ -88,5 +89,16 @@ def render_second_step_payment_pro_page(request):
     
 
 def render_third_step_payment_pro_page(request):
+
+    username = request.user
+
+    user = User.objects.get(username = username)
+
+    profile = Profile.objects.get(user = user)
+
+    profile.subscribe = "pro"
+
+    profile.save()
+
     error = ""
     return render(request, "third_step_payment_pro.html", context = {"error" : error})
