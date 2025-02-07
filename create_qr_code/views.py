@@ -3,8 +3,10 @@ from django.db import IntegrityError
 from .models import QrCodes
 from registration.models import Profile
 from django.contrib.auth.models import User
-from qrcode.image.styles.moduledrawers.pil import CircleModuleDrawer
-
+from qrcode.image.styledpil import StyledPilImage
+from qrcode.image.styles.moduledrawers import (
+    CircleModuleDrawer, SquareModuleDrawer
+)
 import qrcode
 import os
 
@@ -33,6 +35,11 @@ def render_create_qr_code_page(request):
         qr_code_color = request.POST.get("color")
         qr_code_back_color = request.POST.get("back_color")
 
+        logotype = request.POST.get("logo")
+
+        dots_form = request.POST.get("dots")
+        eye_form = request.POST.get("eye")
+
         if qr_code_name == "":
             return redirect("/create_qr_code_page/")
         
@@ -42,8 +49,23 @@ def render_create_qr_code_page(request):
         qr_code.add_data(qr_code_url)
         qr_code.make()
         
+        print(logotype)
 
-        img = qr_code.make_image(fill_color = qr_code_color, back_color = qr_code_back_color)
+
+        eye_drawer_module = SquareModuleDrawer()
+        dots_drawer_module = SquareModuleDrawer()
+
+
+        if eye_form == "circle" or eye_form == "Circle":
+            eye_drawer_module = CircleModuleDrawer()
+        elif dots_form == "circle" or dots_form == "Circle":
+            dots_drawer_module = CircleModuleDrawer(resample_method=None)
+
+
+
+        img = qr_code.make_image(fill_color = qr_code_color, back_color = qr_code_back_color, module_drawer= dots_drawer_module, eye_drawer=eye_drawer_module, image_factory=StyledPilImage)
+
+
         img.save(os.path.abspath(__file__ + f"/../../media/qr_codes/demo/{username}_qrcode.png"))
 
         qr_codes = QrCodes.objects.filter(user_id = username.id)

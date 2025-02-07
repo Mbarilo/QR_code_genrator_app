@@ -34,6 +34,7 @@ def render_my_qr_codes_page(request):
                     finded_qr_codes.append(qr_code)
 
 
+
         if deleleted_qr_code != None:
             qr_code_name = QrCodes.objects.get(id = deleleted_qr_code).name
 
@@ -41,6 +42,8 @@ def render_my_qr_codes_page(request):
             os.remove(os.path.abspath(__file__ + f"/../../media/qr_codes/image/{username}/{qr_code_name}.png"))
 
             return redirect("/my_qr_codes_page/")
+
+    
 
 
     if "find" in request.POST:
