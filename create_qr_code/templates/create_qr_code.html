@@ -32,7 +32,7 @@ Create QR-code
     </div>
     <div class="name_and_image">
         <p class="name">{{username}}</p>
-        <a class="logout" onclick="location.href = '/logout_page/'">Logout</a>
+        <a class="logout" onclick="location.href = '/logout_page/'">logout</a>
 
     </div>
     {% else %}
@@ -105,8 +105,10 @@ Create QR-code
             <div class="input_name_div">
                 <input type="text" class="input_name" placeholder="Enter QR-code name here..." name="name">
             </div>
+            <div class="save_and_check">
             <button class="save_btn" name="save">Save</button>
             <button class="save_btn" name="check">check</button>
+            </div>
         </div>
 
     </form>

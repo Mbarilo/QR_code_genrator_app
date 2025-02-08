@@ -41,6 +41,9 @@ header .name_and_image {
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: absolute;
+    right: 100px;
+    top: 5px;
 }
 
 
@@ -143,13 +146,13 @@ header .buttons a {
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: center;
     padding-left: 30px;
-    padding-top: 10px;
+    padding-top: 0px;
     padding-right: 30px;
     font-size: 24px;
     height: 50px;
     font-weight: 300;
-    align-items: baseline;
     border-radius: 50px;
     background-color: #FFAD7A;
     box-sizing: border-box;
@@ -346,7 +349,7 @@ main form .example_qr-code {
     flex-direction: column;
     align-items: center;
     padding-top: 35px;
-    gap: 31px;
+    gap: 25px;
     box-sizing: border-box;
 }
 
@@ -395,9 +398,15 @@ main form .example_qr-code .input_name_div {
 
 }
 
-main form .example_qr-code .save_btn {
+main form .example_qr-code .save_and_check {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+main form .example_qr-code .save_and_check .save_btn {
     width: 250px;
-    height: 69px;
+    height: 50px;
     border-radius: 50px;
     border: 1px solid black;
     font-size: 33px;
