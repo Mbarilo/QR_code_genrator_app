@@ -212,6 +212,16 @@ main form .main_container .buttons * .input {
     padding-left: 30px;
 }
 
+main form .example_qr-code .input_name {
+    width: 280px;
+    height: 69px;
+    background-color: #9AF0FF;
+    border-radius: 50px;
+    border: 1px solid black;
+    position: absolute;
+    padding-left: 25px;
+}
+
 .text-color {
     font-size: 25px;
 }
@@ -241,6 +251,21 @@ main form .main_container .buttons * .text {
     padding-left: 25px;
 }
 
+main form .main_container .buttons .input_frame {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 100px;
+}
+
+main form .main_container .buttons .input_frame input {
+    width: 35px;
+}
+
+main form .main_container .buttons p {
+    width: 150px;
+}
+
 
 main form .main_container .buttons .logo {
     opacity: 0;
@@ -251,7 +276,7 @@ main form .main_container .buttons * .logo_label {
     height: 50px;
     border: 1px solid black;
     border-radius: 50px;
-    background-color: #9AF0FF;  
+    background-color: #9AF0FF;
     text-align: center;
     justify-content: center;
     color: white;
@@ -347,14 +372,9 @@ main form .example_qr-code .input_name_div {
 }
 
 
-main form .example_qr-code .input_name {
-    width: 280px;
-    height: 69px;
-    background-color: #9AF0FF;
-    border-radius: 50px;
-    border: 1px solid black;
-    position: absolute;
-    padding-left: 25px;
+
+main form .example_qr-code .input_frame {
+    background-color: darkblue;
 }
 
 main form .example_qr-code .input_name::placeholder {
