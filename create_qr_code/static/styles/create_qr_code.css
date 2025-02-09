@@ -323,6 +323,13 @@ main form .main_container .buttons .input_logo .now_uploaded_image {
     border-radius: 5px;
 }
 
+
+main form .main_container .buttons .input_logo .now_uploaded_image .logotype {
+    width: 75px;
+    height: 75px;
+}
+
+
 main form .main_container .buttons .input_logo {
     width: 556px;
     height: 124px;

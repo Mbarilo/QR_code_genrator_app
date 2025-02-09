@@ -8,12 +8,13 @@ from qrcode.image.styledpil import StyledPilImage
 from qrcode.image.styles.moduledrawers import (
     CircleModuleDrawer, SquareModuleDrawer
 )
+from django.core.files.storage import FileSystemStorage
+
 import qrcode
 import os
 
 
 def render_create_qr_code_page(request):
-
 
 
     if request.user.is_authenticated:
@@ -23,11 +24,21 @@ def render_create_qr_code_page(request):
         username = "none"
         return redirect("/")
     
+    qr_codes = QrCodes.objects.filter(user_id = username.id)
+
+    last_qr_code = "hello"
+
+    print(qr_codes)
+    if len(qr_codes) > 0:
+        last_qr_code = qr_codes[len(qr_codes) - 1]   
+
+
     user = User.objects.get(username = username)
 
     user_now = Profile.objects.get(user = user)
 
     print(user_now.subscribe)
+
 
     if request.method == "POST":
         # qr_code_url to encode
@@ -36,22 +47,28 @@ def render_create_qr_code_page(request):
         qr_code_color = request.POST.get("color")
         qr_code_back_color = request.POST.get("back_color")
 
-        logotype = request.POST.get("logo")
+        logo_path = os.path.join("media", "qr_codes", "demo", f"{qr_code_name}_logo.png")
+
+
+        logotype = request.FILES.get("logo")
+        file_system = FileSystemStorage()
+
+
 
         dots_form = request.POST.get("dots")
         eye_form = request.POST.get("eye")
 
         frame_around =  request.POST.get("circle")
 
-        print("\n\n\n\n\n",frame_around, "\n\n\n\n\n\n\n")
-
         if qr_code_name == "":
             return redirect("/create_qr_code_page/")
                
 
-        qr_code = qrcode.QRCode()
+        qr_code = qrcode.QRCode(error_correction= qrcode.constants.ERROR_CORRECT_H)
         qr_code.add_data(qr_code_url)
         qr_code.make()
+
+
 
 
         eye_drawer_module = SquareModuleDrawer()
@@ -65,9 +82,14 @@ def render_create_qr_code_page(request):
 
 
 
-        img = qr_code.make_image(fill_color = qr_code_color, back_color = qr_code_back_color, module_drawer= dots_drawer_module, eye_drawer=eye_drawer_module, image_factory=StyledPilImage)
-
-
+        img = qr_code.make_image(
+            image_factory=StyledPilImage, 
+            module_drawer= dots_drawer_module, 
+            eye_drawer=eye_drawer_module, 
+            
+            fill_color = qr_code_color,
+            back_color = qr_code_back_color).convert('RGB')
+    
 
         if frame_around == "on":
             draw = ImageDraw.Draw(img)
@@ -80,7 +102,6 @@ def render_create_qr_code_page(request):
             )
 
 
-        qr_codes = QrCodes.objects.filter(user_id = username.id)
 
         qrcode_names = []
 
@@ -98,19 +119,57 @@ def render_create_qr_code_page(request):
         elif user_now.subscribe == "pro":
             maximum_qr_codes = 100
 
+
+
+
         if qr_code_name not in qrcode_names:
 
-            if len(qr_codes) < maximum_qr_codes:
-
-                if "save" in request.POST:
-                    # try:
-                    img.save(os.path.abspath(__file__ + f"/../../media/qr_codes/demo/{username}_qrcode.png"))
-                    QrCodes.objects.create(name = qr_code_name, image = f"/../../media/qr_codes/image/{username}/{qr_code_name}.png", user = username)
-                    img.save(os.path.abspath(__file__ + f"/../../media/qr_codes/image/{username}/{qr_code_name}.png"))
-                    # except:
-                    #     error = "this name already used"
-        return redirect("/create_qr_code_page/")
+            if "check" not in request.POST:
+                if len(qr_codes) < maximum_qr_codes:
 
 
-    return render(request, "create_qr_code.html", context = {"username" : username, })
+                    if "save" in request.POST:
+                        if logotype != None:
+                            file_system.save(name = logo_path, content= logotype)
+                            logo = Image.open(logotype)
 
+                            img_size = img.size[0]
+                            logo = logo.resize((100, 100))
+
+                            logo_x = (img_size - logo.size[0]) // 2
+                            logo_y = (img_size - logo.size[0]) // 2
+                            
+                            rgba = logo.convert("RGBA")
+
+                            img.paste(logo, (logo_x, logo_y), rgba)
+                        # try:
+                        img.save(os.path.abspath(__file__ + f"/../../media/qr_codes/demo/{username}_qrcode.png"))
+                        QrCodes.objects.create(name = qr_code_name, image = f"/../../media/qr_codes/image/{username}/{qr_code_name}.png", user = username)
+                        img.save(os.path.abspath(__file__ + f"/../../media/qr_codes/image/{username}/{qr_code_name}.png"))
+                        # except:
+                        #     error = "this name already used"
+            else:
+
+                print(logo_path)
+
+                file_system.save(name = logo_path, content= logotype)
+                
+
+                logo = Image.open(logotype)
+
+                if logotype != None:
+
+                    img_size = img.size[0]
+                    logo = logo.resize((100, 100))
+
+                    logo_x = (img_size - logo.size[0]) // 2
+                    logo_y = (img_size - logo.size[0]) // 2
+                    
+                    rgba = logo.convert("RGBA")
+
+                    img.paste(logo, (logo_x, logo_y), rgba)
+
+                img.save(os.path.abspath(__file__ + f"/../../media/qr_codes/demo/{username}_qrcode.png"))
+
+        return render(request, "create_qr_code.html", context = {"username" : username ,"qr_code_name" : last_qr_code})
+    return render(request, "create_qr_code.html", context = {"username" : username, "qr_code_name" : last_qr_code})
