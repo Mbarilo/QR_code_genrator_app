@@ -64,7 +64,8 @@ Create QR-code
                     <input type="text" class="input" placeholder="Enter your URL-address here..." name="url">
                 </div>
 
-                <input type="file" id="upload_logo" class="logo" name="logo">
+                <input type="file" accept="image/*" id="upload_logo" class="logo" name="logo" type="submit">
+
 
                 <div class="input_logo">
                     <div class="input_logo_btn">
@@ -77,18 +78,38 @@ Create QR-code
                             now uploaded:
                         </label>
                         <div class="now_uploaded_image">
-                            <img src="/media/qr_codes/demo/{{qr_code_name.name}}_logo.png" class="logotype">
+                            {% if logo != None %}
+                            <img src="/media/qr_codes/demo/{{username}}_logo.png" class="logotype">
+                            {% else %}
+                            <img src="/media/no_image.png" class="logotype">
+                            {% endif %}
                         </div>
                     </div>
 
                 </div>
 
                 <div class="input_URL">
-                    <input type="text" class="input" placeholder="Enter dots form(square, circle)" name="dots">
+                    <p>Dots form</p>
+                    <select type="text" class="input" name="dots">
+                        <option value="square">Square</option>
+                        <option value="circle">Circle</option>
+                        <option value="rounded">Rounded</option>
+                        <option value="gapped_square">Gapped Square</option>
+                        <option value="vertical_bars">Vertical Bars</option>
+                        <option value="horizontal_bars">Horizontal Bars</option>
+                    </select>
                 </div>
 
                 <div class="input_URL">
-                    <input type="text" class="input" placeholder="Enter eye form(square, circle)" name="eye">
+                    <p>Eye form</p>
+                    <select type="text" class="input" name="eye">
+                        <option value="square">Square</option>
+                        <option value="circle">Circle</option>
+                        <option value="rounded">Rounded</option>
+                        <option value="gapped_square">Gapped Square</option>
+                        <option value="vertical_bars">Vertical Bars</option>
+                        <option value="horizontal_bars">Horizontal Bars</option>
+                    </select>
                 </div>
 
                 <div class="input_frame">

@@ -6,7 +6,13 @@ from registration.models import Profile
 from django.contrib.auth.models import User
 from qrcode.image.styledpil import StyledPilImage
 from qrcode.image.styles.moduledrawers import (
-    CircleModuleDrawer, SquareModuleDrawer
+    CircleModuleDrawer, 
+    SquareModuleDrawer,
+    RoundedModuleDrawer,
+    GappedSquareModuleDrawer,
+    VerticalBarsDrawer,
+    HorizontalBarsDrawer
+    
 )
 from django.core.files.storage import FileSystemStorage
 
@@ -40,6 +46,7 @@ def render_create_qr_code_page(request):
     print(user_now.subscribe)
 
 
+    logotype = None
     if request.method == "POST":
         # qr_code_url to encode
         qr_code_url = request.POST.get("url")
@@ -47,11 +54,18 @@ def render_create_qr_code_page(request):
         qr_code_color = request.POST.get("color")
         qr_code_back_color = request.POST.get("back_color")
 
-        logo_path = os.path.join("media", "qr_codes", "demo", f"{qr_code_name}_logo.png")
 
+        logotype = request.FILES.get("logo")  
+        print("\n\n\n\n\n\n\n\n\n",logotype, "\n\n\n\n\n\n\n\n\n\n")
 
-        logotype = request.FILES.get("logo")
         file_system = FileSystemStorage()
+
+        if logotype != None:
+            logo_path = os.path.join("qr_codes", "demo", f"{username}_logo.png")
+            file_system.save(name = logo_path, content= logotype)   
+        if logotype == None:
+            pass
+            
 
 
 
@@ -71,14 +85,34 @@ def render_create_qr_code_page(request):
 
 
 
+
+
         eye_drawer_module = SquareModuleDrawer()
         dots_drawer_module = SquareModuleDrawer()
 
 
-        if eye_form == "circle" or eye_form == "Circle":
+        if eye_form == "circle":
             eye_drawer_module = CircleModuleDrawer()
-        elif dots_form == "circle" or dots_form == "Circle":
+        elif eye_form == "rounded":
+            eye_drawer_module = RoundedModuleDrawer()
+        elif eye_form == "gapped_square":
+            eye_drawer_module = GappedSquareModuleDrawer()
+        elif eye_form == "vertical_bars":
+            eye_drawer_module = VerticalBarsDrawer()
+        elif eye_form == "horizontal_bars":
+            eye_drawer_module = HorizontalBarsDrawer()
+        
+
+        if dots_form == "circle":
             dots_drawer_module = CircleModuleDrawer(resample_method=None)
+        elif dots_form == "rounded":
+            dots_drawer_module = RoundedModuleDrawer()
+        elif dots_form == "gapped_square":
+            dots_drawer_module = GappedSquareModuleDrawer()
+        elif dots_form == "vertical_bars":
+            dots_drawer_module = VerticalBarsDrawer()
+        elif dots_form == "horizontal_bars":
+            dots_drawer_module = HorizontalBarsDrawer()
 
 
 
@@ -130,7 +164,7 @@ def render_create_qr_code_page(request):
 
                     if "save" in request.POST:
                         if logotype != None:
-                            file_system.save(name = logo_path, content= logotype)
+                            
                             logo = Image.open(logotype)
 
                             img_size = img.size[0]
@@ -151,8 +185,6 @@ def render_create_qr_code_page(request):
             else:
 
                 print(logo_path)
-
-                file_system.save(name = logo_path, content= logotype)
                 
 
                 logo = Image.open(logotype)
@@ -171,5 +203,5 @@ def render_create_qr_code_page(request):
 
                 img.save(os.path.abspath(__file__ + f"/../../media/qr_codes/demo/{username}_qrcode.png"))
 
-        return render(request, "create_qr_code.html", context = {"username" : username ,"qr_code_name" : last_qr_code})
-    return render(request, "create_qr_code.html", context = {"username" : username, "qr_code_name" : last_qr_code})
+        return render(request, "create_qr_code.html", context = {"username" : username ,"qr_code_name" : last_qr_code, "logo" : logotype})
+    return render(request, "create_qr_code.html", context = {"username" : username, "qr_code_name" : last_qr_code, "logo" : logotype})
