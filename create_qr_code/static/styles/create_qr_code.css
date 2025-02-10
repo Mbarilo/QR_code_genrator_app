@@ -12,6 +12,7 @@
 body {
     background-image: url("/media/images/bg.png");
     background-size: 100%;
+    overflow: hidden;
 }
 
 body * {
@@ -243,6 +244,12 @@ main form .main_container .buttons * .color {
     font-size: 24px;
 }
 
+main .parametrs {
+    font-size: 50px;
+    position: absolute;
+    left: 675px;
+    top: 175px;
+}
 
 main form .main_container .buttons * .text {
     width: 350px;

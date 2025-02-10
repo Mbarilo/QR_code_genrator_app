@@ -136,7 +136,7 @@ header .buttons {
 
 }
 
-.buttons a:hover{
+.buttons a:hover {
     background-color: #fa8c60;
     cursor: pointer;
 }
@@ -173,16 +173,16 @@ main {
 main .container_authors {
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
     gap: 10px;
     padding-left: 25px;
     padding-right: 25px;
     height: 526px;
-    width: 1174px;
+    width: 1400px;
     border-radius: 50px;
     border: 1px solid black;
     background-color: white;
-    overflow-x: auto;
+    overflow-x: hidden;
     overflow-y: hidden;
 }
 

@@ -15,6 +15,7 @@ def render_my_qr_codes_page(request):
         return redirect("/")
 
     qr_codes = QrCodes.objects.filter(user_id = username.id)
+    len_qr_codes = len(qr_codes)
     finded_qr_codes = []
     qr_codes_pathes = []
 
@@ -47,6 +48,6 @@ def render_my_qr_codes_page(request):
 
 
     if "find" in request.POST:
-        return render(request, "my_qr_codes.html", context = {"username" : username, "qr_codes": finded_qr_codes})
+        return render(request, "my_qr_codes.html", context = {"username" : username, "qr_codes": finded_qr_codes, "len_qr_codes" : len_qr_codes})
     if "find" not in request.POST:
-        return render(request, "my_qr_codes.html", context = {"username" : username, "qr_codes": qr_codes})
+        return render(request, "my_qr_codes.html", context = {"username" : username, "qr_codes": qr_codes, "len_qr_codes" : len_qr_codes})

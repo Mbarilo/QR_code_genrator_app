@@ -47,11 +47,14 @@ Create QR-code
 
 
 <main>
+
+    <p class="parametrs">Parametres:</p>
+
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <div class="main_container">
             <div class="buttons">
-                <div class="input_color">
+                <!-- <div class="input_color">
                     <p class="text-color">Main color:</p>
                     <input type="color" class="color" placeholder="Enter your QR-code color here..." name="color">
                 </div>
@@ -59,9 +62,9 @@ Create QR-code
                     <p class="text-color">Back color:</p>
                     <input type="color" class="color" placeholder="Enter your QR-code back-color here..."
                         name="back_color">
-                </div>
+                </div> -->
                 <div class="input_URL">
-                    <input type="text" class="input" placeholder="Enter your URL-address here..." name="url">
+                    <input type="text" class="input" placeholder="Enter your URL-address here..." name="url" required>
                 </div>
 
                 <input type="file" accept="image/*" id="upload_logo" class="logo" name="logo" type="submit">
@@ -124,7 +127,7 @@ Create QR-code
         <div class="example_qr-code">
             <img src="/media/qr_codes/demo/{{username}}_qrcode.png" class="generated_qr-code">
             <div class="input_name_div">
-                <input type="text" class="input_name" placeholder="Enter QR-code name here..." name="name">
+                <input type="text" class="input_name" placeholder="Enter QR-code name here..." name="name" required>
             </div>
             <div class="save_and_check">
                 <button class="save_btn" name="save">Save</button>

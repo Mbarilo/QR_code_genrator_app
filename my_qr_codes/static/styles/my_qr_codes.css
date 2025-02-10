@@ -166,8 +166,28 @@ main {
     border: 1px solid black;
     gap: 25px;
     overflow-x: scroll;
-    
+
 }
+
+.qr-code-container .no_qr_codes_div {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    align-items: center;
+    justify-content: center;
+}
+
+.qr-code-container .no_qr_codes_div .text_no_qr_codes {
+    font-size: 30px;
+    width: 600px;
+    text-align: center;
+}
+
+.qr-code-container .no_qr_codes_div .no_qr_codes {
+    width: 350px;
+    height: 350px;
+}
+
 
 .qr-code-element {
     display: flex;
