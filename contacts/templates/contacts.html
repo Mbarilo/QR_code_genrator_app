@@ -5,6 +5,7 @@
 {% block links %}
 <link rel="stylesheet" href="{% static 'styles/contacts.css' %}">
 <link rel="icon" href="{% static 'images/qr-code.ico' %}">
+<script src="{% static 'js/contacts.js' %}" defer></script>
 {% endblock %}
 
 {% block title %}
@@ -28,8 +29,11 @@ Create QR-code
         <a class="contacts" onclick="location.href = '/contacts_page/'">contacts</a>
     </div>
     <div class="name_and_image">
-        <p class="name">{{username}}</p>
-        <a class="logout" onclick="location.href = '/logout_page/'">logout</a>
+        <p class="name" id="name">Welcome {{username}}</p>
+        <div class="user-info-div">
+          <h2>subscribe: {{ subscribe }}</h2>
+          <a class="logout" onclick="location.href = '/logout_page/'">logout</a>
+        </div>
     </div>
     {% else %}
     <div class = "buttons">

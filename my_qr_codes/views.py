@@ -1,15 +1,18 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from create_qr_code.models import QrCodes
+from registration.models import Profile
 import os
 
 
 # Create your views here.
 
 def render_my_qr_codes_page(request):
-    
+    subscribe = 'none'
     if request.user.is_authenticated:
         username = request.user
+        user_id = request.user.id
+        subscribe = Profile.objects.get(user_id = user_id).subscribe
     else:
         username = "none"
         return redirect("/")
@@ -48,6 +51,6 @@ def render_my_qr_codes_page(request):
 
 
     if "find" in request.POST:
-        return render(request, "my_qr_codes.html", context = {"username" : username, "qr_codes": finded_qr_codes, "len_qr_codes" : len_qr_codes})
+        return render(request, "my_qr_codes.html", context = {"username" : username, "qr_codes": finded_qr_codes, "len_qr_codes" : len_qr_codes, "subscribe" : subscribe})
     if "find" not in request.POST:
-        return render(request, "my_qr_codes.html", context = {"username" : username, "qr_codes": qr_codes, "len_qr_codes" : len_qr_codes})
+        return render(request, "my_qr_codes.html", context = {"username" : username, "qr_codes": qr_codes, "len_qr_codes" : len_qr_codes, "subscribe" : subscribe})
