@@ -5,6 +5,7 @@
 {% block links %}
 <link rel="stylesheet" href="{% static 'styles/home.css' %}">
 <link rel="icon" href="{% static 'images/qr-code.ico' %}">
+<script src="{% static 'js/home.js' %}" defer></script>
 {% endblock %}
 
 {% block title %}
@@ -30,8 +31,11 @@ Home
   </div>
   <div class="name_and_image">
   
-  <p class="name">{{username}}</p>
-  <a class="logout" onclick="location.href = '/logout_page/'">logout</a>
+  <p class="name">Welcome {{username}}</p>
+  <div class="user-info-div">
+    <h2>subscribe: {{ subscribe }}</h2>
+    <a class="logout" onclick="location.href = '/logout_page/'">logout</a>
+  </div>
   {% else %}
     <div class = "buttons">
       <a class="my_qr_codes" onclick="location.href = '/registration/'">registration</a>
