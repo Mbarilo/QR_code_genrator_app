@@ -22,9 +22,11 @@ import os
 
 def render_create_qr_code_page(request):
 
-
+    subscribe = 'none'
     if request.user.is_authenticated:
         username = request.user
+        user_id = request.user.id
+        subscribe = Profile.objects.get(user_id = user_id).subscribe
         print(username)
     else:
         username = "none"
@@ -203,5 +205,5 @@ def render_create_qr_code_page(request):
 
                 img.save(os.path.abspath(__file__ + f"/../../media/qr_codes/demo/{username}_qrcode.png"))
 
-        return render(request, "create_qr_code.html", context = {"username" : username ,"qr_code_name" : last_qr_code, "logo" : logotype})
-    return render(request, "create_qr_code.html", context = {"username" : username, "qr_code_name" : last_qr_code, "logo" : logotype})
+        return render(request, "create_qr_code.html", context = {"username" : username ,"qr_code_name" : last_qr_code, "logo" : logotype, "subscribe": subscribe})
+    return render(request, "create_qr_code.html", context = {"username" : username, "qr_code_name" : last_qr_code, "logo" : logotype, "subscribe": subscribe})

@@ -52,11 +52,33 @@ header .name_and_page_name * {
 }
 
 header .name {
-    text-decoration: underline;
     font-weight: 400;
     font-size: 40px;
-    width: 250px;
     text-align: center;
+    position: relative;
+}
+
+header .name:hover{
+    cursor: pointer;
+}
+
+header .name::after, header .name::before{
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 4px;
+    bottom: 0px;
+    background-color: black;
+    transition: width 0.6s;
+}
+header .name::after{
+    left: 50%;
+}
+header .name::before{
+    right: 50%;
+}
+header .name:hover::after, header .name:hover::before{
+    width: 50%;
 }
 
 
@@ -79,7 +101,7 @@ header .name_and_image {
     align-items: center;
     position: absolute;
     right: 100px;
-    top: 5px;
+    top: 35px;
 }
 
 
@@ -88,7 +110,22 @@ header .name_and_image img {
     height: 50px;
 }
 
-
+.user-info-div{
+    display: flex;
+    width: 175px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    border: 2px solid black;
+    gap: 20px;
+    padding: 20px;
+    margin-top: 10px;
+    background-color: white;
+    opacity: 0;
+    z-index: 1000;
+    transition: opacity 0.8s;
+}
 
 header .name_and_image .logout {
     font-size: 32.88px;
