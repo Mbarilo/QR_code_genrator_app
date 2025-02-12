@@ -62,7 +62,7 @@ header .name_and_image .logout {
     background-color: #9AF0FF;
     border: 1px solid black;
     border-radius: 70px;
-    color: white;
+    color: black;
     text-align: center;
     box-sizing: border-box;
     padding-top: 6px;
@@ -104,11 +104,12 @@ header .name {
     position: relative;
 }
 
-header .name:hover{
+header .name:hover {
     cursor: pointer;
 }
 
-header .name::after, header .name::before{
+header .name::after,
+header .name::before {
     content: '';
     position: absolute;
     width: 0;
@@ -117,17 +118,21 @@ header .name::after, header .name::before{
     background-color: black;
     transition: width 0.6s;
 }
-header .name::after{
+
+header .name::after {
     left: 50%;
 }
-header .name::before{
+
+header .name::before {
     right: 50%;
 }
-header .name:hover::after, header .name:hover::before{
+
+header .name:hover::after,
+header .name:hover::before {
     width: 50%;
 }
 
-.user-info-div{
+.user-info-div {
     display: flex;
     width: 175px;
     flex-direction: column;
@@ -217,17 +222,14 @@ main form .main_container {
     background-color: white;
     border-radius: 50px;
     width: 750px;
-    height: 470px;
     padding-top: 40px;
     display: flex;
     justify-content: center;
-    box-sizing: border-box;
-    overflow-y: scroll;
+    padding-bottom: 25px;
 }
 
 main form .buttons {
     width: 588px;
-    height: 391px;
     display: flex;
     flex-direction: column;
     gap: 30px;
@@ -276,7 +278,7 @@ main form .main_container .buttons * .color {
 
 
 ::placeholder {
-    color: white;
+    color: black;
     opacity: 75%;
     font-size: 24px;
 }
@@ -293,7 +295,7 @@ main form .main_container .buttons * .text {
     height: 24px;
     font-size: 24px;
     position: absolute;
-    color: white;
+    color: black;
     opacity: 75%;
     padding-left: 25px;
 }
@@ -326,7 +328,7 @@ main form .main_container .buttons * .logo_label {
     background-color: #9AF0FF;
     text-align: center;
     justify-content: center;
-    color: white;
+    color: black;
     font-size: 20px;
 }
 
@@ -392,7 +394,6 @@ main form .main_container .buttons .input_size p {
 
 main form .example_qr-code {
     width: 300px;
-    height: 470px;
     background-color: white;
     border: 1px solid black;
     border-radius: 50px;
@@ -401,13 +402,14 @@ main form .example_qr-code {
     align-items: center;
     padding-top: 35px;
     gap: 25px;
+    padding-bottom: 35px;
     box-sizing: border-box;
 }
 
 main form .example_qr-code .input_name_div p {
     font-size: 20px;
     font-weight: 300;
-    color: white;
+    color: black;
     z-index: 2;
 }
 
@@ -462,7 +464,7 @@ main form .example_qr-code .save_and_check .save_btn {
     border: 1px solid black;
     font-size: 33px;
     background-color: #9AF0FF;
-    color: white;
+    color: black;
 }
 
 

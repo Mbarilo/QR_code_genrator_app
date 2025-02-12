@@ -34,8 +34,8 @@ Create QR-code
     <div class="name_and_image">
         <p class="name" id="name">Welcome {{username}}</p>
         <div class="user-info-div">
-          <h2>subscribe: {{ subscribe }}</h2>
-          <a class="logout" onclick="location.href = '/logout_page/'">logout</a>
+            <h2>subscribe: {{ subscribe }}</h2>
+            <a class="logout" onclick="location.href = '/logout_page/'">logout</a>
         </div>
 
     </div>
@@ -51,8 +51,6 @@ Create QR-code
 
 
 <main>
-
-    <p class="parametrs">Parametres:</p>
 
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}

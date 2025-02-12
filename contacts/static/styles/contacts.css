@@ -57,11 +57,12 @@ header .name {
     position: relative;
 }
 
-header .name:hover{
+header .name:hover {
     cursor: pointer;
 }
 
-header .name::after, header .name::before{
+header .name::after,
+header .name::before {
     content: '';
     position: absolute;
     width: 0;
@@ -70,13 +71,17 @@ header .name::after, header .name::before{
     background-color: black;
     transition: width 0.6s;
 }
-header .name::after{
+
+header .name::after {
     left: 50%;
 }
-header .name::before{
+
+header .name::before {
     right: 50%;
 }
-header .name:hover::after, header .name:hover::before{
+
+header .name:hover::after,
+header .name:hover::before {
     width: 50%;
 }
 
@@ -110,7 +115,7 @@ header .name_and_image img {
     height: 50px;
 }
 
-.user-info-div{
+.user-info-div {
     display: flex;
     width: 175px;
     flex-direction: column;
@@ -213,26 +218,24 @@ main .container_authors {
     gap: 10px;
     padding-left: 25px;
     padding-right: 25px;
-    height: 526px;
     width: 1400px;
     border-radius: 50px;
     border: 1px solid black;
     background-color: white;
     overflow-x: hidden;
     overflow-y: hidden;
+    padding-top: 25px;
+    padding-bottom: 25px;
 }
 
 main .container_authors .card {
     display: flex;
     flex-direction: column;
     align-items: center;
-    flex-shrink: 0;
     width: 324px;
-    height: 470px;
     background-color: white;
     border: 1px solid black;
     border-radius: 50px;
-    box-sizing: border-box;
 }
 
 main .container_authors .card .all_info {
@@ -240,7 +243,6 @@ main .container_authors .card .all_info {
     flex-direction: column;
     align-items: center;
     width: 300px;
-    height: 489px;
     box-sizing: border-box;
     overflow-y: auto;
     overflow-x: hidden;
