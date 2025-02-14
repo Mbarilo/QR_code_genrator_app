@@ -317,7 +317,7 @@ main form .main_container .buttons p {
 
 
 main form .main_container .buttons .logo {
-    opacity: 0;
+    display: block;
 }
 
 main form .main_container .buttons * .logo_label {

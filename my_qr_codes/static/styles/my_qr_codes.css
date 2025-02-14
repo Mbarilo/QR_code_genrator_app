@@ -217,7 +217,6 @@ main {
     gap: 25px;
     align-items: center;
     justify-content: center;
-    width: 100%;
 }
 
 .qr-code-container .no_qr_codes_div .text_no_qr_codes {

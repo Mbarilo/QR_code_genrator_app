@@ -69,7 +69,8 @@ Create QR-code
                     <input type="text" class="input" placeholder="Enter your URL-address here..." name="url" required>
                 </div>
 
-                <input type="file" accept="image/*" id="upload_logo" class="logo" name="logo" type="submit">
+                <input type="file" accept="image/*" id="upload_logo" class="logo" name="logo" type="submit"
+                    onchange="readURL(this)">
 
 
                 <div class="input_logo">
@@ -86,7 +87,7 @@ Create QR-code
                             {% if logo != None %}
                             <img src="/media/qr_codes/demo/{{username}}_logo.png" class="logotype">
                             {% else %}
-                            <img src="/media/no_image.png" class="logotype">
+                            <img src="/media/no_image.png" class="logotype" id="logo">
                             {% endif %}
                         </div>
                     </div>

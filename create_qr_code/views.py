@@ -205,5 +205,5 @@ def render_create_qr_code_page(request):
 
                 img.save(os.path.abspath(__file__ + f"/../../media/qr_codes/demo/{username}_qrcode.png"))
 
-        return render(request, "create_qr_code.html", context = {"username" : username ,"qr_code_name" : last_qr_code, "logo" : logotype, "subscribe": subscribe})
-    return render(request, "create_qr_code.html", context = {"username" : username, "qr_code_name" : last_qr_code, "logo" : logotype, "subscribe": subscribe})
+        return render(request, "create_qr_code.html", context = {"username" : username ,"qr_code_name" : logotype, "subscribe": subscribe})
+    return render(request, "create_qr_code.html", context = {"username" : username, "qr_code_name" : logotype, "subscribe": subscribe})
