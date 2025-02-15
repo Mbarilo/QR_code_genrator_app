@@ -35,10 +35,9 @@ Create QR-code
     <div class="name_and_image">
         <p class="name" id="name">Welcome {{username}}</p>
         <div class="user-info-div">
-          <h2>subscribe: {{ subscribe }}</h2>
-          <a class="logout" onclick="location.href = '/logout_page/'">logout</a>
+            <h2>subscribe: {{ subscribe }}</h2>
+            <a class="logout" onclick="location.href = '/logout_page/'">logout</a>
         </div>
-        <img src="{% static 'images/user.png' %}">
     </div>
     {% else %}
     <div class="buttons">
@@ -74,7 +73,7 @@ Create QR-code
             </div>
             {% endif %}
             <div class="finder">
-                <input type="text" placeholder="Find with QR-code name..." name="find_input">
+                <input type="text" placeholder="Find with QR-code name..." name="find_input" class="finder" value="">
                 <button type="submit" name="find">
                     <img src="/media/images/find_glass.png">
                 </button>

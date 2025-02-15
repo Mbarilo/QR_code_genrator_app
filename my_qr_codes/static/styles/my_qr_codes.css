@@ -34,7 +34,7 @@ header img {
     height: 50px;
     display: flex;
     align-items: start;
-    visibility: hidden;
+    display: none;
 }
 
 
@@ -287,7 +287,6 @@ input {
 .finder {
     display: flex;
     justify-content: space-between;
-    background-color: cadetblue;
 }
 
 .finder img {

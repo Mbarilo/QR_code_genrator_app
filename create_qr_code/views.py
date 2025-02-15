@@ -15,10 +15,20 @@ from qrcode.image.styles.moduledrawers import (
     
 )
 from django.core.files.storage import FileSystemStorage
+from qrcode.image.styles.colormasks import RadialGradiantColorMask
 
 import qrcode
 import os
 
+
+def rgb_coverter(color):
+    color_rgb = color.lstrip("#")
+    r = int(color_rgb[0:2], 16)
+    g = int(color_rgb[2:4], 16)
+    b = int(color_rgb[4:6], 16)
+    
+    return r, g, b
+    
 
 def render_create_qr_code_page(request):
 
@@ -116,15 +126,15 @@ def render_create_qr_code_page(request):
         elif dots_form == "horizontal_bars":
             dots_drawer_module = HorizontalBarsDrawer()
 
-
+        mask_color = RadialGradiantColorMask(back_color= (rgb_coverter(qr_code_back_color)), edge_color= (rgb_coverter(qr_code_color)), center_color= (rgb_coverter(qr_code_color)))
 
         img = qr_code.make_image(
             image_factory=StyledPilImage, 
             module_drawer= dots_drawer_module, 
             eye_drawer=eye_drawer_module, 
-            
             fill_color = qr_code_color,
-            back_color = qr_code_back_color).convert('RGB')
+            back_color = qr_code_back_color,
+            color_mask = mask_color).convert('RGB')
     
 
         if frame_around == "on":
