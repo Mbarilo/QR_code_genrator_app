@@ -224,6 +224,7 @@ main form .main_container {
     width: 750px;
     padding-top: 40px;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     padding-bottom: 25px;
 }
@@ -269,11 +270,19 @@ main form .example_qr-code .input_name {
     font-size: 25px;
 }
 
-main form .main_container .buttons * .color {
+main form .main_container .buttons .input_color {
+    width: 600px;
     display: flex;
-    width: 588px;
-    height: 60px;
-    border: 1px solid black;
+    box-sizing: border-box;
+    justify-content: space-between;
+}
+
+main form .main_container .buttons .input_color .color {
+    display: flex;
+    width: 200px;
+    height: 50px;
+    border: none;
+
 }
 
 
@@ -472,7 +481,7 @@ main form .example_qr-code .save_and_check .save_btn {
 
 footer {
     width: 100%;
-    height: 124px;
+    height: 225px;
     display: flex;
     flex-direction: row;
     align-items: center;

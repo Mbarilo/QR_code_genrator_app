@@ -188,12 +188,12 @@ def render_create_qr_code_page(request):
                             rgba = logo.convert("RGBA")
 
                             img.paste(logo, (logo_x, logo_y), rgba)
-                        # try:
                         img.save(os.path.abspath(__file__ + f"/../../media/qr_codes/demo/{username}_qrcode.png"))
                         QrCodes.objects.create(name = qr_code_name, image = f"/../../media/qr_codes/image/{username}/{qr_code_name}.png", user = username)
                         img.save(os.path.abspath(__file__ + f"/../../media/qr_codes/image/{username}/{qr_code_name}.png"))
-                        # except:
-                        #     error = "this name already used"
+                    
+                    return redirect("/create_qr_code_page/")
+
             else:
 
                 print(logo_path)

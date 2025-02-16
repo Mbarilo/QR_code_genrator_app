@@ -51,6 +51,13 @@ Create QR-code
     <form method="post">
         {% csrf_token %}
         <div class="qr-code-container">
+            <div class="finder">
+                <input type="text" placeholder="Find with QR-code name..." name="find_input" class="finder" value=""
+                    id="finder">
+                <button type="submit" name="find">
+                    <img src="/media/images/find_glass.png">
+                </button>
+            </div>
             {% if len_qr_codes != 0 %}
             {% for qr_code in qr_codes %}
 
@@ -63,7 +70,7 @@ Create QR-code
                 </div>
                 <p class="qr_code_name">{{qr_code.name}}</p>
                 <a class="download-button" href="{{qr_code.image}}" download="GFG">Download</a>
-                <p>{{qr_code.date}}</p>
+                <p>Created : {{qr_code.date}}</p>
             </div>
             {% endfor %}
             {% else %}
@@ -72,12 +79,6 @@ Create QR-code
                 <p class="text_no_qr_codes">Maybe You don't have any QR-code...</p>
             </div>
             {% endif %}
-            <div class="finder">
-                <input type="text" placeholder="Find with QR-code name..." name="find_input" class="finder" value="">
-                <button type="submit" name="find">
-                    <img src="/media/images/find_glass.png">
-                </button>
-            </div>
         </div>
     </form>
 </main>

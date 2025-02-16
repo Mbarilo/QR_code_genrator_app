@@ -1,14 +1,14 @@
 let username = document.getElementById('name');
 let logoutButton = document.querySelector('.logout');
 let userInfoDiv = document.querySelector('.user-info-div');
-let findInput = document.querySelector(".finder");
+let findInput = document.getElementById("finder");
 
 
-findInput.addEventListener("keypress", () => {
+findInput.addEventListener("input", () => {
     InputText = findInput.value
     console.log(InputText)
     // window.location.reload();
-    findInput.value += InputText
+    findInput.value = InputText
 })
 
 username.addEventListener('click', () => {
