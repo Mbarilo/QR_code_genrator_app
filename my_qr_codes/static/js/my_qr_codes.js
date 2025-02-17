@@ -4,12 +4,12 @@ let userInfoDiv = document.querySelector('.user-info-div');
 let findInput = document.getElementById("finder");
 
 
-findInput.addEventListener("input", () => {
-    InputText = findInput.value
-    console.log(InputText)
-    // window.location.reload();
-    findInput.value = InputText
-})
+// findInput.addEventListener("input", () => {
+//     InputText = findInput.value
+//     console.log(InputText)
+//     window.location.reload();
+//     findInput.value = InputText
+// })
 
 username.addEventListener('click', () => {
     if (userInfoDiv.style.opacity == 0) {

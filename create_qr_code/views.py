@@ -66,6 +66,8 @@ def render_create_qr_code_page(request):
         qr_code_color = request.POST.get("color")
         qr_code_back_color = request.POST.get("back_color")
 
+        print(qr_code_color, qr_code_back_color)
+
 
         logotype = request.FILES.get("logo")  
         print("\n\n\n\n\n\n\n\n\n",logotype, "\n\n\n\n\n\n\n\n\n\n")
