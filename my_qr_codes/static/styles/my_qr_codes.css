@@ -9,6 +9,8 @@
 }
 
 
+
+
 body {
     background-image: url("/media/images/bg.png");
     background-size: 100%;
@@ -244,7 +246,30 @@ main {
     height: 200px;
 }
 
-.qr-code-element .delete {
+.qr-code-element .download_and_delete {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 500px;
+    gap: 10px;
+}
+
+.delete_button {
+    background-color: white;
+    border: 0;
+}
+
+.delete_button.accept {
+    background-color: #BEF2FE;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.delete_button:hover {
+    cursor: pointer;
+}
+
+.qr-code-element .download_and_delete .delete {
     width: 50px;
     height: 50px;
 }
@@ -252,7 +277,7 @@ main {
 .qr-code-element .qr-code_and_delete {
     display: flex;
     align-items: start;
-    justify-content: end;
+    justify-content: center;
     width: 300px;
     /* background-color: darkblue; */
 }
@@ -272,13 +297,14 @@ input {
 .download-button {
     background-color: #9AF0FF;
     border-radius: 70px;
-    height: fit-content;
+    height: 50px;
     padding: 15px 50px;
-    font-size: 33px;
+    font-size: 24px;
     font-weight: 600;
     color: white;
-    margin-top: 20px;
     border: 1px solid black;
+    text-align: center;
+    box-sizing: border-box;
 }
 
 .finder {
