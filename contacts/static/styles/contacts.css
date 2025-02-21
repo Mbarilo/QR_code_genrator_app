@@ -12,6 +12,7 @@
 body {
     background-image: url("/media/images/bg.png");
     background-size: 100%;
+    overflow: hidden;
 }
 
 body * {
@@ -35,6 +36,52 @@ header img {
     display: flex;
     align-items: start;
 }
+
+
+header .name_and_image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    right: 100px;
+    top: 35px;
+}
+
+
+header .name_and_image img {
+    width: 50px;
+    height: 50px;
+}
+
+
+
+header .name_and_image .logout {
+    font-size: 32.88px;
+    width: 175px;
+    height: 45px;
+    background-color: #9AF0FF;
+    border: 1px solid black;
+    border-radius: 70px;
+    color: black;
+    text-align: center;
+    box-sizing: border-box;
+    padding-top: 6px;
+}
+
+
+header .name_and_page_name .image_and_page_name .page_name {
+    font-weight: 600;
+    font-size: 60px;
+}
+
+header .name_and_page_name .image_and_page_name {
+    display: flex;
+    align-items: start;
+    flex-wrap: wrap;
+    /* background-color: blueviolet; */
+    width: 300px;
+}
+
 
 
 header .name_and_page_name {
@@ -85,36 +132,6 @@ header .name:hover::before {
     width: 50%;
 }
 
-
-header .name_and_page_name .image_and_page_name .page_name {
-    font-weight: 600;
-    font-size: 60px;
-}
-
-header .name_and_page_name .image_and_page_name {
-    display: flex;
-    align-items: start;
-    flex-wrap: wrap;
-    /* background-color: blueviolet; */
-    width: 300px;
-}
-
-
-header .name_and_image {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: absolute;
-    right: 100px;
-    top: 35px;
-}
-
-
-header .name_and_image img {
-    width: 50px;
-    height: 50px;
-}
-
 .user-info-div {
     display: flex;
     width: 175px;
@@ -131,20 +148,6 @@ header .name_and_image img {
     transition: opacity 0.8s;
 }
 
-header .name_and_image .logout {
-    font-size: 32.88px;
-    width: 175px;
-    height: 45px;
-    background-color: #9AF0FF;
-    border: 1px solid black;
-    border-radius: 70px;
-    color: white;
-    text-align: center;
-    box-sizing: border-box;
-    padding-top: 6px;
-}
-
-
 header .name_and_page_name .image_and_page_name .page_name {
     font-weight: 600;
     font-size: 60px;
@@ -157,7 +160,6 @@ header .name_and_page_name .image_and_page_name {
     /* background-color: blueviolet; */
     width: 300px;
 }
-
 
 header .name_and_page_name .image_and_page_name .QR- {
     color: #67E0AC;
@@ -177,28 +179,33 @@ header .buttons {
 
 }
 
+
 .buttons a:hover {
     background-color: #fa8c60;
     cursor: pointer;
 }
 
-header .buttons * {
+header .buttons a {
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: center;
     padding-left: 30px;
-    padding-top: 10px;
+    padding-top: 0px;
     padding-right: 30px;
     font-size: 24px;
     height: 50px;
     font-weight: 300;
-    align-items: baseline;
     border-radius: 50px;
     background-color: #FFAD7A;
     box-sizing: border-box;
     border: 1px solid black;
     cursor: pointer;
 }
+
+
+
+
 
 
 
