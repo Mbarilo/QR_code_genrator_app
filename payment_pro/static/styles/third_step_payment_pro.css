@@ -88,8 +88,7 @@ main {
 }
 
 main .container {
-    width: 662px;
-    height: 750px;
+    height: 600px;
     background-color: white;
     border: 1px solid black;
     border-radius: 50px;
@@ -98,7 +97,7 @@ main .container {
     align-items: center;
     padding-top: 25px;
     box-sizing: border-box;
-    gap: 80px;
+    gap: 40px;
 }
 
 main .container .steps .round {
@@ -124,23 +123,23 @@ main .container .step_name {
 }
 
 main .container .group_image_and_steps {
-    height: 240px;
+    min-height: 240px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
 }
 
-main .container .container_inputs {
-    width: 450px;
-    height: 155px;
+main .container .payment-div {
+    width: 1100px;
+    height: 100%;
     display: flex;
     justify-content: space-between;
-    flex-direction: column;
+    flex-direction: row;
 }
 
 
-main .container .container_inputs .input {
+main .container .payment-div .input {
     width: 450px;
     height: 60px;
     padding-left: 25px;
@@ -163,6 +162,10 @@ main .container .submit {
     display: flex;
     justify-content: center;
     align-items: center;
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, 0%);
 }
 
 main .container form {
@@ -194,4 +197,71 @@ footer * {
 footer .conteiner_images_contacts {
     width: 400px;
     display: flex;
+}
+
+.payment-left-div{ 
+    width: 60%; 
+    padding: 30px;
+    box-sizing: border-box;
+    border: 1px solid #d4d4d4;
+    border-bottom-left-radius: 50px;
+} 
+ 
+.payment-card-div{ 
+    display: flex; 
+    gap: 20px; 
+} 
+ 
+.card-inputs{ 
+    display: flex; 
+    flex-direction: column; 
+    gap: 8px;
+} 
+
+.card-inputs h2{
+    font-weight: 200;
+}
+ 
+.card-inputs input{ 
+    padding-left: 15px;
+    padding-top: 5px;
+    width: 125px; 
+    height: 60px; 
+    font-size: 26px; 
+    border-radius: 15px; 
+    border: 1px solid #0000008a; 
+    display: flex;
+} 
+ 
+.card-number-div input{ 
+    width: 300px; 
+}
+
+.card-inputs input::placeholder{
+    color: #a1a0a0;
+    font-weight: 200;
+}
+
+.payment-right-div{
+    width: 40%;
+    border: 1px solid #d4d4d4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    box-sizing: border-box;
+    gap: 10px;
+    border-bottom-right-radius: 50px;
+    position: relative;
+}
+
+.payment-right-div h2{
+    font-size: 28px;
+    font-weight: 300;
+}
+
+.payment-right-div p{
+    margin-top: 10px;
+    font-size: 24px;
+    font-weight: 400;
 }
