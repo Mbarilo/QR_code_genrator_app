@@ -5,6 +5,8 @@
 {% block links %}
 <link rel="stylesheet" href="{% static 'styles/third_step_payment.css' %}">
 <link rel="icon" href="{% static 'images/qr-code.ico' %}">
+<script src="https://unpkg.com/imask@7.6.1/dist/imask.js"></script>
+<script src="{% static 'js/third_step_payment.js' %}" defer></script>
 {% endblock %}
 
 {% block title %}
@@ -29,15 +31,33 @@ Create QR-code
             <img src="{% static 'images/step_image3.png' %}" class="step_image">
             <p class="step_name">PAYMENT</p>
         </div>
-
-        <div class="container_inputs">
-            <!-- <input type="text" placeholder="Enter email here..." class="input email_input">
-            <input type="text" placeholder="Enter password here..." class="input password_input"> -->
-        </div>
-
-        <p class="error">{{error}}</p>
-
-        <button class="submit" onclick="location.href = '/create_qr_code_page/'">submit</button>
+        <div class="payment-div"> 
+            <div class="payment-left-div"> 
+                <div class="payment-card-div"> 
+                    <div class="card-number-div card-inputs"> 
+                        <h2>Card number</h2> 
+                        <input type="text" placeholder="1234 4321 5678 8765"> 
+                    </div> 
+                    <div class="card-date-div card-inputs"> 
+                        <h2>Date</h2> 
+                        <input type="text" placeholder="DD/YY"> 
+                    </div> 
+                    <div class="card-ccv-div card-inputs"> 
+                        <h2>CCV</h2> 
+                        <input type="text" placeholder="000" maxlength="3"> 
+                    </div> 
+                </div> 
+            </div> 
+            <div class="payment-right-div">
+                <img src="{% static 'images/qr-img.png' %}">
+                <h2>Standart</h2>
+                <div style="display: flex; gap: 10px;"><p>Total price: <p style="text-decoration: underline;">2$</p></p></div>
+                <button class="submit" onclick="location.href = '/create_qr_code_page/'">submit</button>
+            </div>
+        </div> 
+         
+        {% if error %}<p class="error">{{error}}</p>{% endif %} 
+ 
     </div>
 
 </main>
