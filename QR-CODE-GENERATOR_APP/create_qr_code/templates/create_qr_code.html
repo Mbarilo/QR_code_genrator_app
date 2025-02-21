@@ -1,0 +1,150 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block links %}
+<link rel="stylesheet" href="{% static 'styles/create_qr_code.css' %}">
+<link rel="icon" href="{% static 'images/qr-code.ico' %}">
+<script src="{% static 'js/create_qr_code.js' %}" defer></script>
+{% endblock %}
+
+{% block title %}
+Create QR-code
+{% endblock %}
+
+{% block content %}
+
+<header>
+    <div class="name_and_page_name">
+        <div class="image_and_page_name">
+            <p class="page_name">CREATE</p>
+            <img src="{% static 'images/qr-code.png' %}">
+            <p class="QR-">QR-</p>
+            <p class="code">CODE</p>
+
+        </div>
+    </div>
+    {% if username != "none" %}
+    <div class="buttons">
+        <a class="home" onclick="location.href = '/'">home</a>
+        <a class="create_qr_code" onclick="location.href = '/create_qr_code_page/'">create QR-code</a>
+        <a class="my_qr_codes" onclick="location.href = '/my_qr_codes_page/'">my QR-codes</a>
+        <a class="contacts" onclick="location.href = '/contacts_page/'">contacts</a>
+    </div>
+    <div class="name_and_image">
+        <p class="name" id="name">Welcome {{username}}</p>
+        <div class="user-info-div">
+            <h2>subscribe: {{ subscribe }}</h2>
+            <a class="logout" onclick="location.href = '/logout_page/'">logout</a>
+        </div>
+
+    </div>
+    {% else %}
+    <div class="buttons">
+        <a class="my_qr_codes" onclick="location.href = '/registration/'">registration</a>
+        <a class="contacts" onclick="location.href = '/login_page/'">login</a>
+    </div>
+    {% endif %}
+</header>
+
+
+
+
+<main>
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="main_container">
+            <div class="buttons">
+                <div class="input_color">
+                    <p class="text-color">Main color:</p>
+                    <input type="color" class="color" placeholder="Enter your QR-code color here..." name="color">
+
+                    <p class="text-color">Back color:</p>
+                    <input type="color" class="color" placeholder="Enter your QR-code back-color here..."
+                        name="back_color" value="#FFFFFF">
+                </div>
+
+                <div class="input_URL">
+                    <input type="text" class="input" placeholder="Enter your URL-address here..." name="url" required>
+                </div>
+
+                <input type="file" accept="image/*" id="upload_logo" class="logo" name="logo" type="submit"
+                    onchange="readURL(this)">
+
+
+                <div class="input_logo">
+                    <div class="input_logo_btn">
+                        <label for="upload_logo" class="logo_label">upload logo</label>
+
+                    </div>
+
+                    <div class="now_uploaded_div">
+                        <label for="upload" class="now_uploaded_text">
+                            now uploaded:
+                        </label>
+                        <div class="now_uploaded_image">
+                            {% if logo != None %}
+                            <img src="/media/qr_codes/demo/{{username}}_logo.png" class="logotype">
+                            {% else %}
+                            <img src="/media/no_image.png" class="logotype" id="logo">
+                            {% endif %}
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="input_URL">
+                    <p>Dots form</p>
+                    <select type="text" class="input" name="dots">
+                        <option value="square">Square</option>
+                        <option value="circle">Circle</option>
+                        <option value="rounded">Rounded</option>
+                        <option value="gapped_square">Gapped Square</option>
+                        <option value="vertical_bars">Vertical Bars</option>
+                        <option value="horizontal_bars">Horizontal Bars</option>
+                    </select>
+                </div>
+
+                <div class="input_URL">
+                    <p>Eye form</p>
+                    <select type="text" class="input" name="eye">
+                        <option value="square">Square</option>
+                        <option value="circle">Circle</option>
+                        <option value="rounded">Rounded</option>
+                        <option value="gapped_square">Gapped Square</option>
+                        <option value="vertical_bars">Vertical Bars</option>
+                        <option value="horizontal_bars">Horizontal Bars</option>
+                    </select>
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="example_qr-code">
+            <img src="/media/qr_codes/demo/{{username}}_qrcode.png" class="generated_qr-code">
+            <div class="input_name_div">
+                <input type="text" class="input_name" placeholder="Enter QR-code name here..." name="name" required>
+            </div>
+            <div class="save_and_check">
+                <button class="save_btn" name="save">Save</button>
+                <button class="save_btn" name="check">check</button>
+            </div>
+        </div>
+
+    </form>
+
+</main>
+
+
+<footer>
+    <!-- <span class = "container_images_cotacts"> -->
+    <img src="{% static 'images/telephone.png' %}">
+    <img src="{% static 'images/telegram.png' %}">
+    <img src="{% static 'images/discord.png' %}">
+    <img src="{% static 'images/viber.png' %}">
+    <!-- </span> -->
+</footer>
+
+{% endblock %}

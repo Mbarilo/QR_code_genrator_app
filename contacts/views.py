@@ -4,7 +4,7 @@ from registration.models import Profile
 # Create your views here.
 
 def render_contact_page(request):
-    subscribe = 'none'
+    subscribe = 'standart'
     if request.user.is_authenticated:
         username = request.user
         user_id = request.user.id

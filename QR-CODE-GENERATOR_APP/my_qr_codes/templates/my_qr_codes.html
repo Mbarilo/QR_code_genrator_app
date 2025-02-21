@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block links %}
+<link rel="stylesheet" href="{% static 'styles/my_qr_codes.css' %}">
+<link rel="icon" href="{% static 'images/qr-code.ico' %}">
+<script src="{% static 'js/my_qr_codes.js' %}" defer></script>
+{% endblock %}
+
+{% block title %}
+Create QR-code
+{% endblock %}
+
+
+{% block content %}
+
+<header>
+    <div class="name_and_page_name">
+        <div class="image_and_page_name">
+            <p class="page_name">MY</p>
+            <img src="{% static 'images/qr-code.png' %}">
+            <p class="QR-">QR-</p>
+            <p class="code">CODES</p>
+
+        </div>
+    </div>
+    {% if username != "none" %}
+    <div class="buttons">
+        <a class="home" onclick="location.href = '/'">home</a>
+        <a class="create_qr_code" onclick="location.href = '/create_qr_code_page/'">create QR-code</a>
+        <a class="my_qr_codes" onclick="location.href = '/my_qr_codes_page/'">my QR-codes</a>
+        <a class="contacts" onclick="location.href = '/contacts_page/'">contacts</a>
+    </div>
+    <div class="name_and_image">
+        <p class="name" id="name">Welcome {{username}}</p>
+        <div class="user-info-div">
+            <h2>subscribe: {{ subscribe }}</h2>
+            <a class="logout" onclick="location.href = '/logout_page/'">logout</a>
+        </div>
+    </div>
+    {% else %}
+    <div class="buttons">
+        <a class="my_qr_codes" onclick="location.href = '/registration/'">registration</a>
+        <a class="contacts" onclick="location.href = '/login_page/'">login</a>
+    </div>
+    {% endif %}
+</header>
+
+<main>
+    <form method="post">
+        {% csrf_token %}
+        <div class="qr-code-container">
+            <div class="finder">
+                <input type="text" placeholder="Find with QR-code name..." name="find_input" class="finder" value=""
+                    id="finder">
+                <button type="submit" name="find">
+                    <img src="/media/images/find_glass.png">
+                </button>
+            </div>
+            {% if len_qr_codes != 0 %}
+            {% for qr_code in qr_codes %}
+
+            <div class="qr-code-element">
+                <div class="qr-code_and_delete">
+                    <img src="{{qr_code.image}}" class="qr-code">
+                </div>
+                <p class="qr_code_name">{{qr_code.name}}</p>
+                <div class="download_and_delete">
+                    <a class="download-button" href="{{qr_code.image}}" download="GFG">Download</a>
+                    <button type="button" value="{{qr_code.id}}" id="delete" class="delete_button">
+                        <img src="{% static 'images/delete.png' %}" class="delete">
+                    </button>
+                </div>
+                <p>Created : {{qr_code.date}}</p>
+            </div>
+            {% endfor %}
+            {% else %}
+            <div class="no_qr_codes_div">
+                <img src="/media/images/haven't_qr_code.png" class="no_qr_codes">
+                <p class="text_no_qr_codes">Maybe You don't have any QR-code...</p>
+            </div>
+            {% endif %}
+        </div>
+    </form>
+</main>
+<footer>
+    <img src="{% static 'images/phone-outgoing 1.png' %}" alt="">
+    <img src="{% static 'images/telegram 1.png' %}" alt="">
+    <img src="{% static 'images/discord-icon-svgrepo-com 1.png' %}" alt="">
+    <img src="{% static 'images/viber 1.png' %}" alt="">
+</footer>
+
+
+
+{% endblock %}

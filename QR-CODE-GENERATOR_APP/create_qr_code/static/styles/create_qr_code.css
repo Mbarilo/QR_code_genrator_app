@@ -1,0 +1,503 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+@font-face {
+    font-family: 'JosefinSans';
+    src: url('/media/fonts/JosefinSans.ttf') format('truetype');
+}
+
+
+body {
+    background-image: url("/media/images/bg.png");
+    background-size: 100%;
+    overflow: hidden;
+}
+
+body * {
+    font-family: 'JosefinSans';
+}
+
+header {
+    width: 100%;
+    height: 156px;
+    display: flex;
+    flex-direction: row;
+    padding-left: 50px;
+    padding-top: 35px;
+    gap: 250px;
+    box-sizing: border-box;
+}
+
+header img {
+    width: 60px;
+    height: 50px;
+    display: flex;
+    align-items: start;
+}
+
+
+header .name_and_image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    right: 100px;
+    top: 35px;
+}
+
+
+header .name_and_image img {
+    width: 50px;
+    height: 50px;
+}
+
+
+
+header .name_and_image .logout {
+    font-size: 32.88px;
+    width: 175px;
+    height: 45px;
+    background-color: #9AF0FF;
+    border: 1px solid black;
+    border-radius: 70px;
+    color: black;
+    text-align: center;
+    box-sizing: border-box;
+    padding-top: 6px;
+}
+
+
+header .name_and_page_name .image_and_page_name .page_name {
+    font-weight: 600;
+    font-size: 60px;
+}
+
+header .name_and_page_name .image_and_page_name {
+    display: flex;
+    align-items: start;
+    flex-wrap: wrap;
+    /* background-color: blueviolet; */
+    width: 300px;
+}
+
+
+
+header .name_and_page_name {
+    width: 196px;
+    height: 86px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+
+}
+
+header .name_and_page_name * {
+    font-size: 40px;
+}
+
+header .name {
+    font-weight: 400;
+    font-size: 40px;
+    text-align: center;
+    position: relative;
+}
+
+header .name:hover {
+    cursor: pointer;
+}
+
+header .name::after,
+header .name::before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 4px;
+    bottom: 0px;
+    background-color: black;
+    transition: width 0.6s;
+}
+
+header .name::after {
+    left: 50%;
+}
+
+header .name::before {
+    right: 50%;
+}
+
+header .name:hover::after,
+header .name:hover::before {
+    width: 50%;
+}
+
+.user-info-div {
+    display: flex;
+    width: 175px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    border: 2px solid black;
+    gap: 20px;
+    padding: 20px;
+    margin-top: 10px;
+    background-color: white;
+    opacity: 0;
+    transition: opacity 0.8s;
+}
+
+header .name_and_page_name .image_and_page_name .page_name {
+    font-weight: 600;
+    font-size: 60px;
+}
+
+header .name_and_page_name .image_and_page_name {
+    display: flex;
+    align-items: start;
+    flex-wrap: wrap;
+    /* background-color: blueviolet; */
+    width: 300px;
+}
+
+header .name_and_page_name .image_and_page_name .QR- {
+    color: #67E0AC;
+    font-size: 60px;
+    font-weight: 600;
+}
+
+header .name_and_page_name .image_and_page_name .code {
+    font-size: 60px;
+    font-weight: 600;
+}
+
+header .buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 32px;
+
+}
+
+
+.buttons a:hover {
+    background-color: #fa8c60;
+    cursor: pointer;
+}
+
+header .buttons a {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding-left: 30px;
+    padding-top: 0px;
+    padding-right: 30px;
+    font-size: 24px;
+    height: 50px;
+    font-weight: 300;
+    border-radius: 50px;
+    background-color: #FFAD7A;
+    box-sizing: border-box;
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+
+
+
+
+
+main form {
+    width: 100%;
+    height: 645px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+main form .main_container {
+    border: 1px solid black;
+    background-color: white;
+    border-radius: 50px;
+    width: 750px;
+    padding-top: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-bottom: 25px;
+}
+
+main form .buttons {
+    width: 588px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+
+
+main form .main_container .buttons * {
+    display: flex;
+    width: 588px;
+    height: 60px;
+    align-items: center;
+    justify-content: start;
+}
+
+main form .main_container .buttons * .input {
+    display: flex;
+    width: 588px;
+    height: 60px;
+    border: 1px solid black;
+    border-radius: 50px;
+    background-color: #9AF0FF;
+    padding-left: 30px;
+}
+
+main form .example_qr-code .input_name {
+    width: 280px;
+    height: 69px;
+    background-color: #9AF0FF;
+    border-radius: 50px;
+    border: 1px solid black;
+    position: absolute;
+    padding-left: 25px;
+}
+
+.text-color {
+    font-size: 25px;
+}
+
+main form .main_container .buttons .input_color {
+    width: 600px;
+    display: flex;
+    box-sizing: border-box;
+    justify-content: space-between;
+}
+
+main form .main_container .buttons .input_color .color {
+    display: flex;
+    width: 200px;
+    height: 50px;
+    border: none;
+
+}
+
+
+::placeholder {
+    color: black;
+    opacity: 75%;
+    font-size: 24px;
+}
+
+main .parametrs {
+    font-size: 50px;
+    position: absolute;
+    left: 675px;
+    top: 175px;
+}
+
+main form .main_container .buttons * .text {
+    width: 350px;
+    height: 24px;
+    font-size: 24px;
+    position: absolute;
+    color: black;
+    opacity: 75%;
+    padding-left: 25px;
+}
+
+main form .main_container .buttons .input_frame {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 100px;
+}
+
+main form .main_container .buttons .input_frame input {
+    width: 35px;
+}
+
+main form .main_container .buttons p {
+    width: 150px;
+}
+
+
+main form .main_container .buttons .logo {
+    display: none;
+}
+
+main form .main_container .buttons * .logo_label {
+    width: 282px;
+    height: 50px;
+    border: 1px solid black;
+    border-radius: 50px;
+    background-color: #9AF0FF;
+    text-align: center;
+    justify-content: center;
+    color: black;
+    font-size: 20px;
+}
+
+
+
+main form .main_container .buttons .input_logo_btn {
+    width: 282px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+}
+
+
+main form .main_container .buttons .input_logo .now_uploaded_div {
+    width: 159px;
+    height: 124px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+main form .main_container .buttons .input_logo .now_uploaded_text {
+    display: flex;
+    width: 159px;
+    height: 24px;
+    font-weight: 600;
+    font-size: 24px;
+    justify-content: center;
+    align-items: start;
+    color: #007771;
+}
+
+main form .main_container .buttons .input_logo .now_uploaded_image {
+    width: 75px;
+    height: 75px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+
+main form .main_container .buttons .input_logo .now_uploaded_image .logotype {
+    width: 75px;
+    height: 75px;
+}
+
+
+main form .main_container .buttons .input_logo {
+    width: 556px;
+    height: 124px;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+main form .main_container .buttons .input_size p {
+    width: 282px;
+    height: 24px;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+main form .example_qr-code {
+    width: 300px;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 35px;
+    gap: 25px;
+    padding-bottom: 35px;
+    box-sizing: border-box;
+}
+
+main form .example_qr-code .input_name_div p {
+    font-size: 20px;
+    font-weight: 300;
+    color: black;
+    z-index: 2;
+}
+
+
+main form .example_qr-code .generated_qr-code {
+    width: 200px;
+    height: 200px;
+}
+
+main form .example_qr-code .input_name_div {
+    width: 280px;
+    height: 69px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+main form .example_qr-code .input_frame {
+    background-color: darkblue;
+}
+
+main form .example_qr-code .input_name::placeholder {
+    font-size: 20px;
+    font-weight: 200;
+    opacity: 100%;
+}
+
+main form .example_qr-code .input_name:focus {
+    font-size: 20px;
+    font-weight: 350;
+    opacity: 100%;
+}
+
+
+main form .example_qr-code .input_name_div {
+    font-size: 20px;
+
+}
+
+main form .example_qr-code .save_and_check {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+main form .example_qr-code .save_and_check .save_btn {
+    width: 250px;
+    height: 50px;
+    border-radius: 50px;
+    border: 1px solid black;
+    font-size: 33px;
+    background-color: #9AF0FF;
+    color: black;
+}
+
+
+
+
+footer {
+    width: 100%;
+    height: 225px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-left: 726px;
+    padding-right: 726px;
+    gap: 50px;
+    box-sizing: border-box;
+}
+
+footer * {
+    width: 50px;
+    height: 50px;
+}
+
+
+footer .conteiner_images_contacts {
+    width: 400px;
+    display: flex;
+}

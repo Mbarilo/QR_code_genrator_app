@@ -8,7 +8,7 @@ import os
 # Create your views here.
 
 def render_my_qr_codes_page(request):
-    subscribe = 'none'
+    subscribe = 'standart'
     if request.user.is_authenticated:
         username = request.user
         user_id = request.user.id

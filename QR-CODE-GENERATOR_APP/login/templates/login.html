@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block links %}
+<link rel="stylesheet" href="{% static 'styles/login.css' %}">
+<link rel="icon" href="{% static 'images/qr-code.ico' %}">
+{% endblock %}
+
+{% block title %}
+Authorization
+{% endblock %}
+
+{% block content %}
+
+<header>
+    <div class="name_and_page_name">
+
+    </div>
+    <div class="buttons">
+        <a onclick="location.href = '/'" class="home-link">home</a>
+        <a onclick="location.href = '/registration/'" class="registration-link">registration</a>
+    </div>
+
+</header>
+
+
+<div class="image_and_page_name">
+    <p class="page_name">LOGIN</p>
+</div>
+
+<div class="container">
+
+    <form class="form" method="post">
+        {% csrf_token %}
+        <input type="text" placeholder="Enter login here..." name="name" required>
+        <input type="password" placeholder="Enter password here..." name="password" required>
+
+        <p>{{error}}</p>
+        <button>Submit</button>
+    </form>
+
+
+
+
+</div>
+<footer>
+    <div class="social-icons">
+        <a href=""><img src="{% static 'images/phone.jpg' %}" alt="Phone"></a>
+        <a href=""><img src="{% static 'images/telegram.jpg' %}" alt="Telegram"></a>
+        <a href=""><img src="{% static 'images/discord.jpg' %}" alt="Discord"></a>
+        <a href=""><img src="{% static 'images/viber.jpg' %}" alt="Viber"></a>
+    </div>
+</footer>
+
+
+
+{% endblock %}
