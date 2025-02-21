@@ -30,14 +30,17 @@ Create QR-code
             <p class="step_name">PAYMENT</p>
         </div>
 
+
         <div class="container_inputs">
-            <!-- <input type="text" placeholder="Enter email here..." class="input email_input">
-            <input type="text" placeholder="Enter password here..." class="input password_input"> -->
+            <div class="card_number_div">
+                <p>Card number</p>
+                <input type="text" placeholder="1234 4321 5678 8765" class="card_number">
+            </div>
         </div>
 
         <p class="error">{{error}}</p>
 
-        <button class="submit" onclick="location.href = '/create_qr_code_page/'">submit</button>
+        <!-- <button class="submit" onclick="location.href = '/create_qr_code_page/'">submit</button> -->
     </div>
 
 </main>
