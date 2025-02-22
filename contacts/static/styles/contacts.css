@@ -72,6 +72,7 @@ header .name_and_image .logout {
 header .name_and_page_name .image_and_page_name .page_name {
     font-weight: 600;
     font-size: 60px;
+    font-family: 'JosefinSans';
 }
 
 header .name_and_page_name .image_and_page_name {
@@ -79,6 +80,7 @@ header .name_and_page_name .image_and_page_name {
     align-items: start;
     flex-wrap: wrap;
     /* background-color: blueviolet; */
+    font-family: 'JosefinSans';
     width: 300px;
 }
 
@@ -102,6 +104,7 @@ header .name {
     font-size: 40px;
     text-align: center;
     position: relative;
+    font-family: 'JosefinSans';
 }
 
 header .name:hover {
@@ -159,6 +162,7 @@ header .name_and_page_name .image_and_page_name {
     flex-wrap: wrap;
     /* background-color: blueviolet; */
     width: 300px;
+    font-family: 'JosefinSans';
 }
 
 header .name_and_page_name .image_and_page_name .QR- {
@@ -202,8 +206,6 @@ header .buttons a {
     border: 1px solid black;
     cursor: pointer;
 }
-
-
 
 
 
