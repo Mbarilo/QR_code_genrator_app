@@ -32,7 +32,7 @@ def rgb_coverter(color):
 
 def render_create_qr_code_page(request):
 
-    subscribe = 'standart'
+    subscribe = 'none'
     if request.user.is_authenticated:
         username = request.user
         user_id = request.user.id

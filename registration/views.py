@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from registration.models import Profile
 from django.contrib.auth.hashers import make_password
 import os
+from PIL import Image
 # Create your views here.
 
 
@@ -38,6 +39,9 @@ def render_registration(request):
             try:
                 user = User(username = name, password = make_password(password))
                 user.save()
+                username = user.username
+                no_image = Image.open(os.path.abspath(__file__ + f"/../../media/no_image.png"))
+                no_image.save(os.path.abspath(__file__ + f"/../../media/qr_codes/demo/{username}_qrcode.png"))
                 Profile.objects.create(user = user, subscribe = "none")
                 os.makedirs(os.path.abspath(__file__ + f"/../../media/qr_codes/image/{name}"))
                 return redirect("/login_page/")
