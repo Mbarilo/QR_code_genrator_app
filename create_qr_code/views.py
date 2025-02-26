@@ -16,7 +16,7 @@ from qrcode.image.styles.moduledrawers import (
 )
 from django.core.files.storage import FileSystemStorage
 from qrcode.image.styles.colormasks import RadialGradiantColorMask
-
+from django.http import HttpRequest
 import qrcode
 import os
 
@@ -30,7 +30,7 @@ def rgb_coverter(color):
     return r, g, b
     
 
-def render_create_qr_code_page(request):
+def render_create_qr_code_page(request: HttpRequest):
 
     subscribe = 'none'
     if request.user.is_authenticated:
@@ -190,9 +190,15 @@ def render_create_qr_code_page(request):
                             rgba = logo.convert("RGBA")
 
                             img.paste(logo, (logo_x, logo_y), rgba)
-                        img.save(os.path.abspath(__file__ + f"/../../media/qr_codes/demo/{username}_qrcode.png"))
-                        QrCodes.objects.create(name = qr_code_name, image = f"/../../media/qr_codes/image/{username}/{qr_code_name}.png", user = username)
-                        img.save(os.path.abspath(__file__ + f"/../../media/qr_codes/image/{username}/{qr_code_name}.png"))
+                        if "http://" in qr_code_url or "https://" in qr_code_url:
+                            img.save(os.path.abspath(__file__ + f"/../../media/qr_codes/demo/{username}_qrcode.png"))
+                            QrCodes.objects.create(name = qr_code_name, image = f"/../../media/qr_codes/image/{username}/{qr_code_name}.png", user = username)
+                            img.save(os.path.abspath(__file__ + f"/../../media/qr_codes/image/{username}/{qr_code_name}.png"))
+                        else:
+                            pass
+                        print(qr_code_name)
+                        #Тут нужно вставить модальное окно
+
                     
                     return redirect("/create_qr_code_page/")
 

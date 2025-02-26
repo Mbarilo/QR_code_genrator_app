@@ -2,14 +2,8 @@ let username = document.getElementById('name');
 let logoutButton = document.querySelector('.logout');
 let userInfoDiv = document.querySelector('.user-info-div');
 let findInput = document.getElementById("finder");
-let deleteButton = document.getElementById("delete")
+let deleteButtonsList = document.querySelectorAll(".delete_button");
 
-// findInput.addEventListener("input", () => {
-//     InputText = findInput.value
-//     console.log(InputText)
-//     window.location.reload();
-//     findInput.value = InputText
-// })
 
 username.addEventListener('click', () => {
     if (userInfoDiv.style.opacity == 0) {
@@ -25,13 +19,25 @@ username.addEventListener('click', () => {
 })
 
 
-deleteButton.addEventListener("click", () => {
 
-    if (deleteButton.classList.contains("accept")) {
-        deleteButton.setAttribute("name", "delete")
-        deleteButton.setAttribute("type", "submit")
-        console.log("ajgoie")
-    }
+deleteButtonsList.forEach((element) => {
+    // if (this.classList.contains("accept")) {
+    //     this.getAttribute("id").setAttribute("name", "delete")
+    //     this.getAttribute("id").setAttribute("type", "submit")
+    //     console.log("ajgoie")
+    // }
 
-    deleteButton.classList.add("accept")
+    // this.getAttribute("id").classList.add("accept")
+
+    console.log(element)
+
+    element.addEventListener("click", () => {
+        if (element.classList.contains("accept")) {
+            element.setAttribute("name", "delete")
+            element.setAttribute("type", "submit")
+            console.log("ajgoie")
+        }
+
+        element.classList.add("accept")
+    })
 })

@@ -45,7 +45,7 @@ def render_first_step_payment_pro_page(request):
                         recipient_list= [f"{email_input}"],
                         fail_silently= False
                     )
-                    return redirect("/second_step/")
+                    return redirect("/second_step_pro/")
                 except: 
                     error = "email is not exist"
             else:

@@ -68,7 +68,7 @@ Create QR-code
                 <p class="qr_code_name">{{qr_code.name}}</p>
                 <div class="download_and_delete">
                     <a class="download-button" href="{{qr_code.image}}" download="GFG">Download</a>
-                    <button type="button" value="{{qr_code.id}}" id="delete" class="delete_button">
+                    <button type="button" value="{{qr_code.id}}" id="{qr_code.id}" class="delete_button">
                         <img src="{% static 'images/delete.png' %}" class="delete">
                     </button>
                 </div>

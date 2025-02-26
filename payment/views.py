@@ -46,7 +46,7 @@ def render_first_step_payment_page(request):
                         recipient_list= [f"{email_input}"],
                         fail_silently= False
                     )
-                    return redirect("/second_step_pro/")
+                    return redirect("/second_step/")
                 except: 
                     error = "email is not exist"
             else:
@@ -77,7 +77,7 @@ def render_second_step_payment_page(request):
             print(secret_code_model)
 
             if secret_code_input == secret_code_model:
-                return redirect("/third_step_pro/")
+                return redirect("/third_step/")
             else:
                 error = "incorrect code"
                 
