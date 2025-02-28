@@ -18,6 +18,7 @@ from django.core.files.storage import FileSystemStorage
 from qrcode.image.styles.colormasks import RadialGradiantColorMask
 from django.http import HttpRequest
 import qrcode
+import qrcode, datetime
 import os
 
 
@@ -43,7 +44,18 @@ def render_create_qr_code_page(request: HttpRequest):
         return redirect("/")
     
     qr_codes = QrCodes.objects.filter(user_id = username.id)
-
+    
+    if subscribe == "none":
+        fmt = "%Y-%m-%d"
+        six_months = datetime.timedelta(days=182)
+        date = str(datetime.date.today())
+        date = datetime.datetime.strptime(date, fmt)
+        for code in qr_codes:
+            date_qr = str(code.date)
+            date_qr = datetime.datetime.strptime(date_qr, fmt)
+            if date - date_qr >= six_months:
+                code.delete()
+            
     last_qr_code = "hello"
 
     print(qr_codes)

@@ -46,7 +46,8 @@ INSTALLED_APPS = [
     "contacts",
     "logout_page",
     "payment_pro",
-]
+    "payment_desktop"
+    ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

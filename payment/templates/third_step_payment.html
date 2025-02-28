@@ -33,6 +33,16 @@ Create QR-code
         </div>
         <div class="payment-div">
             <div class="payment-left-div">
+                <div class="cycle">
+                    <button id="month" class="active">
+                        Monthly
+                        <p>$2.00 per month</p>
+                    </button>
+                    <button id="year">
+                        Yearly
+                        <p>$1.50 per month</p>
+                    </button>
+                </div>
                 <div class="payment-card-div">
                     <div class="card-number-div card-inputs">
                         <h2>Card number</h2>
@@ -53,7 +63,7 @@ Create QR-code
                 <h2>Standart</h2>
                 <div style="display: flex; gap: 10px;">
                     <p>Total price:
-                    <p style="text-decoration: underline;">2$</p>
+                    <p id="price" style="text-decoration: underline;">2$</p>
                     </p>
                 </div>
                 <button class="submit" onclick="location.href = '/create_qr_code_page/'">submit</button>
