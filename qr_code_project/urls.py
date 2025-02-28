@@ -28,7 +28,6 @@ from registration.views import render_registration
 from contacts.views import render_contact_page
 from logout_page.views import render_logout_page
 
-
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('create_qr_code_page/', render_create_qr_code_page, name = "create_qr_code"),
@@ -39,7 +38,7 @@ urlpatterns = [
     path('', include('payment_pro.urls')),
     path('registration/', render_registration),
     path('contacts_page/', render_contact_page),
-    path('logout_page/', render_logout_page, name = "logout")
+    path('logout_page/', render_logout_page, name = "logout"),
 ]
 
 

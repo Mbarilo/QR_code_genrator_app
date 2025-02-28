@@ -192,12 +192,16 @@ def render_create_qr_code_page(request: HttpRequest):
                             img.paste(logo, (logo_x, logo_y), rgba)
                         if "http://" in qr_code_url or "https://" in qr_code_url:
                             img.save(os.path.abspath(__file__ + f"/../../media/qr_codes/demo/{username}_qrcode.png"))
-                            QrCodes.objects.create(name = qr_code_name, image = f"/../../media/qr_codes/image/{username}/{qr_code_name}.png", user = username)
-                            img.save(os.path.abspath(__file__ + f"/../../media/qr_codes/image/{username}/{qr_code_name}.png"))
+                            QrCodes.objects.create(name = qr_code_name, image = f"/../../media/qr_codes/image/{username}/web/{qr_code_name}.png", user = username, url = qr_code_url, desktop = False)
+                            img.save(os.path.abspath(__file__ + f"/../../media/qr_codes/image/{username}/web/{qr_code_name}.png"))
                         else:
-                            pass
-                        print(qr_code_name)
-                        #Тут нужно вставить модальное окно
+                            if user_now.desktop == True:
+                                img.save(os.path.abspath(__file__ + f"/../../media/qr_codes/demo/{username}_qrcode.png"))
+                                QrCodes.objects.create(name = qr_code_name, image = f"/../../media/qr_codes/image/{username}/desktop/{qr_code_name}.png", user = username, url = qr_code_url, desktop = False)
+                                img.save(os.path.abspath(__file__ + f"/../../media/qr_codes/image/{username}/desktop/{qr_code_name}.png"))
+                            else:
+                                pass
+                                #Тут нужно вставить модальное окно
 
                     
                     return redirect("/create_qr_code_page/")

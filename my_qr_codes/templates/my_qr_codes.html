@@ -60,7 +60,7 @@ Create QR-code
             </div>
             {% if len_qr_codes != 0 %}
             {% for qr_code in qr_codes %}
-
+            {% if qr_code.desktop == False %}
             <div class="qr-code-element">
                 <div class="qr-code_and_delete">
                     <img src="{{qr_code.image}}" class="qr-code">
@@ -74,6 +74,22 @@ Create QR-code
                 </div>
                 <p>Created : {{qr_code.date}}</p>
             </div>
+            {% endif %}
+            {% if qr_code.desktop == True %}
+            <div class="qr-code-element hidden">
+                <div class="qr-code_and_delete">
+                    <img src="{{qr_code.image}}" class="qr-code">
+                </div>
+                <p class="qr_code_name">{{qr_code.name}}</p>
+                <div class="download_and_delete">
+                    <a class="download-button" href="{{qr_code.image}}" download="GFG">Download</a>
+                    <button type="button" value="{{qr_code.id}}" id="{qr_code.id}" class="delete_button">
+                        <img src="{% static 'images/delete.png' %}" class="delete">
+                    </button>
+                </div>
+                <p>Created : {{qr_code.date}}</p>
+            </div>
+            {% endif %}
             {% endfor %}
             {% else %}
             <div class="no_qr_codes_div">

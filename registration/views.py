@@ -44,6 +44,8 @@ def render_registration(request):
                 no_image.save(os.path.abspath(__file__ + f"/../../media/qr_codes/demo/{username}_qrcode.png"))
                 Profile.objects.create(user = user, subscribe = "none")
                 os.makedirs(os.path.abspath(__file__ + f"/../../media/qr_codes/image/{name}"))
+                os.makedirs(os.path.abspath(__file__ + f"/../../media/qr_codes/image/{user}/web"))
+                os.makedirs(os.path.abspath(__file__ + f"/../../media/qr_codes/image/{user}/desktop"))
                 return redirect("/login_page/")
             except:
                 error = "this user already registred"
