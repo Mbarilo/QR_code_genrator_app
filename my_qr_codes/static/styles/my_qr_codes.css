@@ -333,3 +333,22 @@ footer img {
     width: 50px;
     height: 50px;
 }
+
+.subscribe{
+    background-color: #A0F1FF;
+    width: 205px;
+    height: 60px;
+    color: #fff;
+    font-size: 32.88px;
+    border-radius: 50px;
+    cursor: pointer;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    border: 1px solid black;
+    font-family: 'JosefinSans';
+    margin-bottom: 20px;
+}
