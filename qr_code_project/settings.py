@@ -45,7 +45,8 @@ INSTALLED_APPS = [
     "registration",
     "contacts",
     "logout_page",
-    "payment_pro"
+    "payment_pro",
+    "payment_desktop"
 ]
 
 MIDDLEWARE = [

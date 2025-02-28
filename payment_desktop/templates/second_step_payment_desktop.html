@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block links %}
+<link rel="stylesheet" href="{% static 'styles/second_step_payment_desktop.css' %}">
+<link rel="icon" href="{% static 'images/qr-code.ico' %}">
+{% endblock %}
+
+{% block title %}
+Create QR-code
+{% endblock %}
+
+{% block content %}
+
+<header>
+
+</header>
+
+<main>
+
+    <div class="container">
+        <div class="group_image_and_steps">
+            <div class="steps">
+                <img src="{% static 'images/round.png' %}" class="round">
+                <img src="{% static 'images/round.png' %}" class="round">
+                <img src="{% static 'images/empty_round.png' %}" class="round">
+            </div>
+            <img src="{% static 'images/step_image2.png' %}" class="step_image">
+            <p class="step_name">TWO-FACTOR-AUTHENTIFICATION</p>
+            <p>(CHECK WRITED EMAIL)</p>
+        </div>
+
+
+        <form method="post">
+            {% csrf_token %}
+            <div class="container_inputs">
+                <input type="password" placeholder="Enter secret code from email here..." class="input"
+                    name="secret_code">
+            </div>
+
+            <p class="error">{{error}}</p>
+
+            <button class="submit">submit</button>
+        </form>
+    </div>
+
+</main>
+
+<footer>
+
+</footer>
+
+{% endblock %}

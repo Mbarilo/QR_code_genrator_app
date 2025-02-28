@@ -3,10 +3,10 @@
 {% load static %}
 
 {% block links %}
-<link rel="stylesheet" href="{% static 'styles/third_step_payment.css' %}">
+<link rel="stylesheet" href="{% static 'styles/third_step_payment_desktop.css' %}">
 <link rel="icon" href="{% static 'images/qr-code.ico' %}">
 <script src="https://unpkg.com/imask@7.6.1/dist/imask.js"></script>
-<script src="{% static 'js/third_step_payment_pro.js' %}" defer></script>
+<script src="{% static 'js/third_step_payment_desktop.js' %}" defer></script>
 {% endblock %}
 
 {% block title %}
@@ -37,11 +37,11 @@ Create QR-code
                 <div class="cycle">
                     <button id="month" class="active">
                         Monthly
-                        <p>$10.00 per month</p>
+                        <p>$5.00 per month</p>
                     </button>
                     <button id="year">
                         Yearly
-                        <p>$8.00 per month</p>
+                        <p>$4.00 per month</p>
                     </button>
                 </div>
                 <div class="payment-card-div"> 
@@ -61,7 +61,7 @@ Create QR-code
             </div> 
             <div class="payment-right-div">
                 <img src="{% static 'images/qr-img.png' %}">
-                <h2>Pro</h2>
+                <h2>Desktop</h2>
                 <div style="display: flex; gap: 10px;"><p>Total price: <p id="price" style="text-decoration: underline;">5$</p></p></div>
                 <button class="submit" onclick="location.href = '/create_qr_code_page/'">submit</button>
             </div>

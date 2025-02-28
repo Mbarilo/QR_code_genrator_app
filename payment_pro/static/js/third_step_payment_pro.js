@@ -1,5 +1,6 @@
 let dateInput = document.querySelector('.card-date-div')
 let cardInput = document.querySelector('.card-number-div')
+let ccvInput = document.querySelector('.card-ccv-div')
 
 
 IMask(
@@ -12,3 +13,24 @@ IMask(
         mask: '0000 0000 0000 0000'
     }
 )
+IMask(
+    ccvInput.querySelector('input'), {
+        mask: '000'
+    }
+)
+
+let monthButton = document.getElementById('month')
+let yearButton = document.getElementById('year')
+let price = document.getElementById('price')
+
+monthButton.addEventListener('click', () => {
+    price.textContent = '10$'
+    monthButton.classList.add('active')
+    yearButton.classList.remove('active')
+})
+
+yearButton.addEventListener('click', () => {
+    price.textContent = '96$'
+    yearButton.classList.add('active')
+    monthButton.classList.remove('active')
+})

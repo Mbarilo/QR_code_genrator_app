@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from create_qr_code.models import QrCodes
 from registration.models import Profile
-import os
+import os, datetime
 
 
 # Create your views here.
@@ -21,6 +21,17 @@ def render_my_qr_codes_page(request):
     len_qr_codes = len(qr_codes)
     finded_qr_codes = []
     qr_codes_pathes = []
+    
+    if subscribe == "none":
+        fmt = "%Y-%m-%d"
+        six_months = datetime.timedelta(days=182)
+        date = str(datetime.date.today())
+        date = datetime.datetime.strptime(date, fmt)
+        for code in qr_codes:
+            date_qr = str(code.date)
+            date_qr = datetime.datetime.strptime(date_qr, fmt)
+            if date - date_qr >= six_months:
+                code.delete()
 
     for qr_code in qr_codes:
         qr_codes_pathes.append(qr_code.image)
