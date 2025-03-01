@@ -30,18 +30,18 @@ Home
     <a class="contacts" onclick="location.href = '/contacts_page/'">contacts</a>
   </div>
   <div class="name_and_image">
-  
-  <p class="name" id="name">Welcome {{username}}</p>
-  <div class="user-info-div">
-    <h2>subscribe: {{ subscribe }}</h2>
-    <a class="logout" onclick="location.href = '/logout_page/'">logout</a>
-  </div>
-  {% else %}
-    <div class = "buttons">
+
+    <p class="name" id="name">Welcome {{username}}</p>
+    <div class="user-info-div">
+      <h2>subscribe: {{ subscribe }}</h2>
+      <a class="logout" onclick="location.href = '/logout_page/'">logout</a>
+    </div>
+    {% else %}
+    <div class="buttons">
       <a class="my_qr_codes" onclick="location.href = '/registration/'">registration</a>
       <a class="contacts" onclick="location.href = '/login_page/'">login</a>
     </div>
-  {% endif %}
+    {% endif %}
   </div>
 
 </header>
@@ -65,6 +65,12 @@ Home
       </div>
       <a class="button" onclick="location.href = '/first_step/'">subscribe</a>
     </div>
+    <div class="plan" style="border-right: 1px solid black; border-left: 1px solid black;">
+      <p>Information about the site</p>
+      <div>
+        <p>This site is for creating your own QR-codes. You can create one QR-code for free or buy a subscription!</p>
+      </div>
+    </div>
     <div class="plan">
       <p>pro</p>
       <div>
@@ -72,6 +78,14 @@ Home
         <p>• maximum 100 QR-codes</p>
       </div>
       <a class="button" onclick="location.href = '/first_step_pro/'">subscribe</a>
+    </div>
+    <div class="plan">
+      <p>desktop</p>
+      <div>
+        <p>• cost : 5$ for one-time</p>
+        <p>• 25 base cells for desktop QR-codes</p>
+      </div>
+      <a class="button" onclick="location.href = '/first_step_desktop/'">subscribe</a>
     </div>
   </div>
 </main>

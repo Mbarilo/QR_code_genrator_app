@@ -219,7 +219,7 @@ main {
 .pricing-table {
     display: flex;
     justify-content: center;
-    max-width: 1200px;
+    max-width: 1500px;
 }
 
 .pricing-table p {
@@ -250,6 +250,10 @@ main {
     list-style: inside;
     font-size: 32.88px;
     font-weight: 300;
+}
+
+.information_div div {
+    border: 1px solid black;
 }
 
 .button {

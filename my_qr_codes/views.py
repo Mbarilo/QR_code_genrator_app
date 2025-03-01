@@ -66,9 +66,9 @@ def render_my_qr_codes_page(request):
             return redirect("/my_qr_codes_page/")
 
     
-
+    desktop_qr_codes = QrCodes.objects.filter(user = user, desktop = 1)
 
     if "find" in request.POST:
-        return render(request, "my_qr_codes.html", context = {"username" : username, "qr_codes": finded_qr_codes, "len_qr_codes" : len_qr_codes, "subscribe" : subscribe, "desktop" : user})
+        return render(request, "my_qr_codes.html", context = {"username" : username, "qr_codes": finded_qr_codes, "len_qr_codes" : len_qr_codes, "subscribe" : subscribe, "desktop" : user_now.desktop, "len_dektop_qr_codes" : len(desktop_qr_codes)})
     if "find" not in request.POST:
-        return render(request, "my_qr_codes.html", context = {"username" : username, "qr_codes": qr_codes, "len_qr_codes" : len_qr_codes, "subscribe" : subscribe, "desktop" : user_now.desktop})
+        return render(request, "my_qr_codes.html", context = {"username" : username, "qr_codes": qr_codes, "len_qr_codes" : len_qr_codes, "subscribe" : subscribe, "desktop" : user_now.desktop, "len_dektop_qr_codes" : len(desktop_qr_codes)})

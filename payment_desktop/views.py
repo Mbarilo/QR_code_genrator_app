@@ -48,6 +48,7 @@ def render_first_step_payment_desktop_page(request):
                     return redirect("/second_step/")
                 except: 
                     error = "email is not exist"
+
             else:
                 error = "incorrect password"
                 
@@ -91,13 +92,10 @@ def render_second_step_payment_desktop_page(request):
 def render_third_step_payment_desktop_page(request):
 
     username = request.user
-
     user = User.objects.get(username = username)
 
     profile = Profile.objects.get(user = user)
-
-    profile.subscribe = "desktop"
-
+    profile.desktop = 1
     profile.save()
 
     error = ""

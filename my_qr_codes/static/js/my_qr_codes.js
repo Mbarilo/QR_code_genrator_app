@@ -2,8 +2,17 @@ let username = document.getElementById('name');
 let logoutButton = document.querySelector('.logout');
 let userInfoDiv = document.querySelector('.user-info-div');
 let findInput = document.getElementById("finder");
-let deleteButtonsList = document.querySelectorAll(".delete_button");
+let deleteButtonsList = document.querySelectorAll("#delete")
+let subscribeButton = document.querySelector(".subscribe")
+let hiddenQrCodes = document.querySelectorAll(".qr-code-element")
 
+
+// findInput.addEventListener("input", () => {
+//     InputText = findInput.value
+//     console.log(InputText)
+//     window.location.reload();
+//     findInput.value = InputText
+// })
 
 username.addEventListener('click', () => {
     if (userInfoDiv.style.opacity == 0) {
@@ -19,18 +28,8 @@ username.addEventListener('click', () => {
 })
 
 
-
 deleteButtonsList.forEach((element) => {
-    // if (this.classList.contains("accept")) {
-    //     this.getAttribute("id").setAttribute("name", "delete")
-    //     this.getAttribute("id").setAttribute("type", "submit")
-    //     console.log("ajgoie")
-    // }
-
-    // this.getAttribute("id").classList.add("accept")
-
     console.log(element)
-
     element.addEventListener("click", () => {
         if (element.classList.contains("accept")) {
             element.setAttribute("name", "delete")
@@ -39,5 +38,17 @@ deleteButtonsList.forEach((element) => {
         }
 
         element.classList.add("accept")
+    })
+})
+
+subscribeButton.addEventListener("click", () => {
+    if (subscribeButton.textContent == "desktop") {
+        subscribeButton.textContent = "web"
+    }
+    else {
+        subscribeButton.textContent = "desktop"
+    }
+    hiddenQrCodes.forEach((element) => {
+        element.classList.toggle("hidden")
     })
 })

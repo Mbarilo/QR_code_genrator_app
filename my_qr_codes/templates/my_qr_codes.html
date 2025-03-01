@@ -50,6 +50,9 @@ Create QR-code
 <main>
     <form method="post">
         {% csrf_token %}
+        {% if desktop == 1 and len_dektop_qr_codes != 0 %}
+        <button class="subscribe" type="button">web</button>
+        {% endif %}
         <div class="qr-code-container">
             <div class="finder">
                 <input type="text" placeholder="Find with QR-code name..." name="find_input" class="finder" value=""
@@ -60,7 +63,7 @@ Create QR-code
             </div>
             {% if len_qr_codes != 0 %}
             {% for qr_code in qr_codes %}
-            {% if qr_code.desktop == False %}
+            {% if qr_code.desktop == 0 %}
             <div class="qr-code-element">
                 <div class="qr-code_and_delete">
                     <img src="{{qr_code.image}}" class="qr-code">
@@ -68,14 +71,14 @@ Create QR-code
                 <p class="qr_code_name">{{qr_code.name}}</p>
                 <div class="download_and_delete">
                     <a class="download-button" href="{{qr_code.image}}" download="GFG">Download</a>
-                    <button type="button" value="{{qr_code.id}}" id="{qr_code.id}" class="delete_button">
+                    <button type="button" value="{{qr_code.id}}" id="delete" class="delete_button">
                         <img src="{% static 'images/delete.png' %}" class="delete">
                     </button>
                 </div>
                 <p>Created : {{qr_code.date}}</p>
             </div>
             {% endif %}
-            {% if qr_code.desktop == True %}
+            {% if qr_code.desktop == 1 %}
             <div class="qr-code-element hidden">
                 <div class="qr-code_and_delete">
                     <img src="{{qr_code.image}}" class="qr-code">
@@ -83,7 +86,7 @@ Create QR-code
                 <p class="qr_code_name">{{qr_code.name}}</p>
                 <div class="download_and_delete">
                     <a class="download-button" href="{{qr_code.image}}" download="GFG">Download</a>
-                    <button type="button" value="{{qr_code.id}}" id="{qr_code.id}" class="delete_button">
+                    <button type="button" value="{{qr_code.id}}" id="delete" class="delete_button">
                         <img src="{% static 'images/delete.png' %}" class="delete">
                     </button>
                 </div>

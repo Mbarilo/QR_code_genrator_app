@@ -32,7 +32,7 @@ def rgb_coverter(color):
     
 
 def render_create_qr_code_page(request: HttpRequest):
-
+    error = ""
     subscribe = 'none'
     if request.user.is_authenticated:
         username = request.user
@@ -100,8 +100,7 @@ def render_create_qr_code_page(request: HttpRequest):
 
         frame_around =  request.POST.get("circle")
 
-        if qr_code_name == "":
-            return redirect("/create_qr_code_page/")
+
                
 
         qr_code = qrcode.QRCode(error_correction= qrcode.constants.ERROR_CORRECT_H)
@@ -203,17 +202,18 @@ def render_create_qr_code_page(request: HttpRequest):
 
                             img.paste(logo, (logo_x, logo_y), rgba)
                         if "http://" in qr_code_url or "https://" in qr_code_url:
+                            desktop_qr_codes = QrCodes.objects.filter(user = user, desktop = 1)
+                            
                             img.save(os.path.abspath(__file__ + f"/../../media/qr_codes/demo/{username}_qrcode.png"))
                             QrCodes.objects.create(name = qr_code_name, image = f"/../../media/qr_codes/image/{username}/web/{qr_code_name}.png", user = username, url = qr_code_url, desktop = False)
                             img.save(os.path.abspath(__file__ + f"/../../media/qr_codes/image/{username}/web/{qr_code_name}.png"))
                         else:
                             if user_now.desktop == True:
                                 img.save(os.path.abspath(__file__ + f"/../../media/qr_codes/demo/{username}_qrcode.png"))
-                                QrCodes.objects.create(name = qr_code_name, image = f"/../../media/qr_codes/image/{username}/desktop/{qr_code_name}.png", user = username, url = qr_code_url, desktop = False)
+                                QrCodes.objects.create(name = qr_code_name, image = f"/../../media/qr_codes/image/{username}/desktop/{qr_code_name}.png", user = username, url = qr_code_url, desktop = True)
                                 img.save(os.path.abspath(__file__ + f"/../../media/qr_codes/image/{username}/desktop/{qr_code_name}.png"))
                             else:
-                                pass
-                                #Тут нужно вставить модальное окно
+                                error = "This qr-code is desktop, buy desktop subcribe"
 
                     
                     return redirect("/create_qr_code_page/")
@@ -239,5 +239,5 @@ def render_create_qr_code_page(request: HttpRequest):
 
                 img.save(os.path.abspath(__file__ + f"/../../media/qr_codes/demo/{username}_qrcode.png"))
 
-        return render(request, "create_qr_code.html", context = {"username" : username ,"qr_code_name" : logotype, "subscribe": subscribe})
-    return render(request, "create_qr_code.html", context = {"username" : username, "qr_code_name" : logotype, "subscribe": subscribe})
+        return render(request, "create_qr_code.html", context = {"username" : username ,"qr_code_name" : logotype, "subscribe": subscribe, "error" : error})
+    return render(request, "create_qr_code.html", context = {"username" : username, "qr_code_name" : logotype, "subscribe": subscribe, "error" : error})
