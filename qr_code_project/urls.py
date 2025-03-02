@@ -27,6 +27,7 @@ from my_qr_codes.views import render_my_qr_codes_page
 from registration.views import render_registration
 from contacts.views import render_contact_page
 from logout_page.views import render_logout_page
+from block_qr_code.views import render_block_page
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -40,6 +41,7 @@ urlpatterns = [
     path('registration/', render_registration),
     path('contacts_page/', render_contact_page),
     path('logout_page/', render_logout_page, name = "logout"),
+    path('check/<int:qr_id>/', render_block_page , name='redirect'),
 ]
 
 

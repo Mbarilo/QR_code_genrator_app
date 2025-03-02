@@ -73,8 +73,9 @@ def render_create_qr_code_page(request: HttpRequest):
     logotype = None
     if request.method == "POST":
         # qr_code_url to encode
-        qr_code_url = request.POST.get("url")
         qr_code_name = request.POST.get("name")
+        qr_code_image_url = f"http://127.0.0.1:8000/check/{qr_code_name}"
+        qr_code_url = request.POST.get("url")
         qr_code_color = request.POST.get("color")
         qr_code_back_color = request.POST.get("back_color")
 
@@ -104,7 +105,7 @@ def render_create_qr_code_page(request: HttpRequest):
                
 
         qr_code = qrcode.QRCode(error_correction= qrcode.constants.ERROR_CORRECT_H)
-        qr_code.add_data(qr_code_url)
+        qr_code.add_data(qr_code_image_url)
         qr_code.make()
 
 
@@ -239,5 +240,6 @@ def render_create_qr_code_page(request: HttpRequest):
 
                 img.save(os.path.abspath(__file__ + f"/../../media/qr_codes/demo/{username}_qrcode.png"))
 
-        return render(request, "create_qr_code.html", context = {"username" : username ,"qr_code_name" : logotype, "subscribe": subscribe, "error" : error})
-    return render(request, "create_qr_code.html", context = {"username" : username, "qr_code_name" : logotype, "subscribe": subscribe, "error" : error})
+
+        return render(request, "create_qr_code.html", context = {"username" : username ,"qr_code_name" : logotype, "subscribe": subscribe, "error" : error, "all_qr_codes" : qr_codes})
+    return render(request, "create_qr_code.html", context = {"username" : username, "qr_code_name" : logotype, "subscribe": subscribe, "error" : error, "all_qr_codes" : qr_codes})
