@@ -120,26 +120,26 @@ cd QR-code_generator_app
 
 <details>
 <summary>
-<p style="font-size: 25px; display: inline; position: relative; top: 3px; left: 5px">Windows</p>
+Windows
 </summary>
 <p></p>
 
-4. Створення віртуального оточення
+1. Створення віртуального оточення
 ```sh
 python -m venv venv
 ```
 
-5. Активація віртуального оточення
+1. Активація віртуального оточення
 ```sh
 .\venv\Scripts\activate
 ```
 
-6. Встановлення залежностей з файлу requirements.txt
+1. Встановлення залежностей з файлу requirements.txt
 ```sh
 pip install -r requirements.txt
 ```
 
-7. Запуск проекту
+1. Запуск проекту
 ```sh
 python manage.py runserver
 ```
@@ -147,31 +147,33 @@ python manage.py runserver
 
 <details>
 <summary>
-<p style="font-size: 25px; display: inline; position: relative; top: 3px; left: 5px">MacOS</p>
+MacOS
 </summary>
 <p></p>
 
-4. Створення віртуального оточення
+1. Створення віртуального оточення
 ```sh
 python3 -m venv venv
 ```
 
-5. Активація віртуального оточення
+1. Активація віртуального оточення
 ```sh
 source venv/bin/activate
 ```
 
-6. Встановлення залежностей з файлу requirements.txt
+1. Встановлення залежностей з файлу requirements.txt
 ```sh
 pip3 install -r requirements.txt
 ```
 
-7. Запуск проекту
+1. Запуск проекту
 ```sh
 python3 manage.py runserver
 ```
 </details>
 <p></p>
+
+---
 
 # Учасники проекту
 1. [Dmytro Chepikov](https://github.com/dimachep1408)
