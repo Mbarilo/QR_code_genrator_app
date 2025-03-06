@@ -24,16 +24,6 @@ def render_my_qr_codes_page(request):
     finded_qr_codes = []
     qr_codes_pathes = []
     
-    if subscribe == "none":
-        fmt = "%Y-%m-%d"
-        six_months = datetime.timedelta(days=182)
-        date = str(datetime.date.today())
-        date = datetime.datetime.strptime(date, fmt)
-        for code in qr_codes:
-            date_qr = str(code.date)
-            date_qr = datetime.datetime.strptime(date_qr, fmt)
-            if date - date_qr >= six_months:
-                code.delete()
 
     for qr_code in qr_codes:
         qr_codes_pathes.append(qr_code.image)
@@ -67,8 +57,9 @@ def render_my_qr_codes_page(request):
 
     
     desktop_qr_codes = QrCodes.objects.filter(user = user, desktop = 1)
+    non_desktop_qr_codes = QrCodes.objects.filter(user = user, desktop = 0)
 
     if "find" in request.POST:
-        return render(request, "my_qr_codes.html", context = {"username" : username, "qr_codes": finded_qr_codes, "len_qr_codes" : len_qr_codes, "subscribe" : subscribe, "desktop" : user_now.desktop, "len_dektop_qr_codes" : len(desktop_qr_codes)})
+        return render(request, "my_qr_codes.html", context = {"username" : username, "qr_codes": finded_qr_codes, "len_qr_codes" : len_qr_codes, "subscribe" : subscribe, "desktop" : user_now.desktop, "non_desktop_qr_codes" : len(non_desktop_qr_codes), "len_dektop_qr_codes" : len(desktop_qr_codes)})
     if "find" not in request.POST:
-        return render(request, "my_qr_codes.html", context = {"username" : username, "qr_codes": qr_codes, "len_qr_codes" : len_qr_codes, "subscribe" : subscribe, "desktop" : user_now.desktop, "len_dektop_qr_codes" : len(desktop_qr_codes)})
+        return render(request, "my_qr_codes.html", context = {"username" : username, "qr_codes": qr_codes, "len_qr_codes" : len_qr_codes, "subscribe" : subscribe, "desktop" : user_now.desktop, "non_desktop_qr_codes" : len(non_desktop_qr_codes), "len_dektop_qr_codes" : len(desktop_qr_codes)})

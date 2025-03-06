@@ -5,7 +5,7 @@ let findInput = document.getElementById("finder");
 let deleteButtonsList = document.querySelectorAll("#delete")
 let subscribeButton = document.querySelector(".subscribe")
 let hiddenQrCodes = document.querySelectorAll(".qr-code-element")
-
+let NoQrCodes = document.querySelectorAll(".no_qr_codes_div_subscribe")
 
 // findInput.addEventListener("input", () => {
 //     InputText = findInput.value
@@ -49,6 +49,9 @@ subscribeButton.addEventListener("click", () => {
         subscribeButton.textContent = "desktop"
     }
     hiddenQrCodes.forEach((element) => {
+        element.classList.toggle("hidden")
+    })
+    NoQrCodes.forEach((element) => {
         element.classList.toggle("hidden")
     })
 })

@@ -53,6 +53,7 @@ Create QR-code
         {% if desktop == 1 and len_dektop_qr_codes != 0 %}
         <button class="subscribe" type="button">web</button>
         {% endif %}
+
         <div class="qr-code-container">
             <div class="finder">
                 <input type="text" placeholder="Find with QR-code name..." name="find_input" class="finder" value=""
@@ -96,6 +97,12 @@ Create QR-code
             {% endfor %}
             {% else %}
             <div class="no_qr_codes_div">
+                <img src="/media/images/haven't_qr_code.png" class="no_qr_codes">
+                <p class="text_no_qr_codes">Maybe You don't have any QR-code...</p>
+            </div>
+            {% endif %}
+            {% if len_dektop_qr_codes != 0 and non_desktop_qr_codes == 0 %}
+            <div class="no_qr_codes_div_subscribe">
                 <img src="/media/images/haven't_qr_code.png" class="no_qr_codes">
                 <p class="text_no_qr_codes">Maybe You don't have any QR-code...</p>
             </div>

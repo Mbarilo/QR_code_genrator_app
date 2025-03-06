@@ -218,6 +218,26 @@ main {
     justify-content: center;
 }
 
+.qr-code-container .no_qr_codes_div_subscribe .text_no_qr_codes {
+    font-size: 30px;
+    width: 600px;
+    text-align: center;
+}
+
+.qr-code-container .no_qr_codes_div_subscribe .no_qr_codes {
+    width: 350px;
+    height: 350px;
+}
+
+
+.qr-code-container .no_qr_codes_div_subscribe {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    align-items: center;
+    justify-content: center;
+}
+
 .qr-code-container .no_qr_codes_div .text_no_qr_codes {
     font-size: 30px;
     width: 600px;
@@ -228,6 +248,7 @@ main {
     width: 350px;
     height: 350px;
 }
+
 
 
 .qr-code-element {
@@ -355,4 +376,5 @@ footer img {
 
 .hidden {
     display: none;
+    opacity: 0;
 }

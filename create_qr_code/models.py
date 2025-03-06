@@ -12,6 +12,7 @@ class QrCodes(models.Model):
     date = models.DateField(default= datetime.date.today())
     url = models.CharField(max_length= 255, default = "none")
     desktop = models.BooleanField(default= False)
+    workable = models.BooleanField(default= True)
 
     def __str__(self):
         return self.name

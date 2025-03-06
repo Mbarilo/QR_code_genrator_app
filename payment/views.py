@@ -97,6 +97,8 @@ def render_third_step_payment_page(request):
 
     profile = Profile.objects.get(user = user)
 
+    
+
     profile.subscribe = "standart"
 
     profile.save()
