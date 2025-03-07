@@ -34,26 +34,26 @@ cd QR-code_generator_app
 
 <details>
 <summary>
-<p style="font-size: 25px; display: inline; position: relative; top: 3px; left: 5px">Windows</p>
+Windows
 </summary>
 <p></p>
 
-4. Create a virtual environment
+1. Create a virtual environment
 ```sh
 python -m venv venv
 ```
 
-5. Activate the virtual environment
+1. Activate the virtual environment
 ```sh
 .\venv\Scripts\activate
 ```
 
-6. Install dependencies from the requirements.txt file
+1. Install dependencies from the requirements.txt file
 ```sh
 pip install -r requirements.txt
 ```
 
-7. Run the project
+1. Run the project
 ```sh
 python manage.py runserver
 ```
@@ -61,26 +61,26 @@ python manage.py runserver
 
 <details>
 <summary>
-<p style="font-size: 25px; display: inline; position: relative; top: 3px; left: 5px">MacOS</p>
+MacOS
 </summary>
 <p></p>
 
-4. Create a virtual environment
+1. Create a virtual environment
 ```sh
 python3 -m venv venv
 ```
 
-5. Activate the virtual environment
+1. Activate the virtual environment
 ```sh
 source venv/bin/activate
 ```
 
-6. Install dependencies from the requirements.txt file
+1. Install dependencies from the requirements.txt file
 ```sh
 pip3 install -r requirements.txt
 ```
 
-7. Run the project
+1. Run the project
 ```sh
 python3 manage.py runserver
 ```
