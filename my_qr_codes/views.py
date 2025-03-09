@@ -60,6 +60,6 @@ def render_my_qr_codes_page(request):
     non_desktop_qr_codes = QrCodes.objects.filter(user = user, desktop = 0)
 
     if "find" in request.POST:
-        return render(request, "my_qr_codes.html", context = {"username" : username, "qr_codes": finded_qr_codes, "len_qr_codes" : len_qr_codes, "subscribe" : subscribe, "desktop" : user_now.desktop, "non_desktop_qr_codes" : len(non_desktop_qr_codes), "len_dektop_qr_codes" : len(desktop_qr_codes)})
+        return render(request, "my_qr_codes.html", context = {"username" : username, "qr_codes": finded_qr_codes, "len_qr_codes" : len_qr_codes, "subscribe" : subscribe, "desktop" : user_now.desktop, "non_desktop_qr_codes" : len(non_desktop_qr_codes), "len_dektop_qr_codes" : len(desktop_qr_codes), "user_now" : user_now})
     if "find" not in request.POST:
-        return render(request, "my_qr_codes.html", context = {"username" : username, "qr_codes": qr_codes, "len_qr_codes" : len_qr_codes, "subscribe" : subscribe, "desktop" : user_now.desktop, "non_desktop_qr_codes" : len(non_desktop_qr_codes), "len_dektop_qr_codes" : len(desktop_qr_codes)})
+        return render(request, "my_qr_codes.html", context = {"username" : username, "qr_codes": qr_codes, "len_qr_codes" : len_qr_codes, "subscribe" : subscribe, "desktop" : user_now.desktop, "non_desktop_qr_codes" : len(non_desktop_qr_codes), "len_dektop_qr_codes" : len(desktop_qr_codes), "user_now" : user_now})

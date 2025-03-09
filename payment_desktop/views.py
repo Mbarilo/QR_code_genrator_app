@@ -90,13 +90,19 @@ def render_second_step_payment_desktop_page(request):
     
 
 def render_third_step_payment_desktop_page(request):
+    error = ""
 
     username = request.user
     user = User.objects.get(username = username)
 
+
+
+    subscribe_type = request.POST.get("subscribe_type")
+
+    print("hello", subscribe_type)
+
     profile = Profile.objects.get(user = user)
-    profile.desktop = 1
+    profile.desktop += 10
     profile.save()
 
-    error = ""
     return render(request, "third_step_payment_desktop.html", context = {"error" : error})

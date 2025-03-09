@@ -41,7 +41,7 @@ urlpatterns = [
     path('registration/', render_registration),
     path('contacts_page/', render_contact_page),
     path('logout_page/', render_logout_page, name = "logout"),
-    path('check/<int:qr_id>/', render_block_page , name='redirect'),
+    path('check/<qr_id>/', render_block_page , name='redirect'),
 ]
 
 

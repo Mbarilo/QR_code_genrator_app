@@ -208,6 +208,7 @@ main {
     flex-wrap: wrap;
     padding-top: 25px;
     padding-bottom: 25px;
+    min-height: 600px;
 }
 
 .qr-code-container .no_qr_codes_div {

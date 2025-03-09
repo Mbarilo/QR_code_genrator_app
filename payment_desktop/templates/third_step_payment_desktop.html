@@ -32,43 +32,43 @@ Create QR-code
             <p class="step_name">PAYMENT</p>
         </div>
 
-        <div class="payment-div"> 
-            <div class="payment-left-div"> 
+        <div class="payment-div">
+            <div class="payment-left-div">
                 <div class="cycle">
-                    <button id="month" class="active">
-                        Monthly
-                        <p>$5.00 per month</p>
-                    </button>
-                    <button id="year">
-                        Yearly
-                        <p>$4.00 per month</p>
+                    <button id="month" class="active" name="subscribe_type" value="5">
+                        10 desktop
+                        <p>$2.00 get 10 more qr-codes</p>
                     </button>
                 </div>
-                <div class="payment-card-div"> 
-                    <div class="card-number-div card-inputs"> 
-                        <h2>Card number</h2> 
-                        <input type="text" placeholder="1234 4321 5678 8765"> 
-                    </div> 
-                    <div class="card-date-div card-inputs"> 
-                        <h2>Date</h2> 
-                        <input type="text" placeholder="DD/YY"> 
-                    </div> 
-                    <div class="card-ccv-div card-inputs"> 
-                        <h2>CCV</h2> 
-                        <input type="text" placeholder="000" maxlength="3"> 
-                    </div> 
-                </div> 
-            </div> 
+                <div class="payment-card-div">
+                    <div class="card-number-div card-inputs">
+                        <h2>Card number</h2>
+                        <input type="text" placeholder="1234 4321 5678 8765">
+                    </div>
+                    <div class="card-date-div card-inputs">
+                        <h2>Date</h2>
+                        <input type="text" placeholder="DD/YY">
+                    </div>
+                    <div class="card-ccv-div card-inputs">
+                        <h2>CCV</h2>
+                        <input type="text" placeholder="000" maxlength="3">
+                    </div>
+                </div>
+            </div>
             <div class="payment-right-div">
                 <img src="{% static 'images/qr-img.png' %}">
                 <h2>Desktop</h2>
-                <div style="display: flex; gap: 10px;"><p>Total price: <p id="price" style="text-decoration: underline;">5$</p></p></div>
+                <div style="display: flex; gap: 10px;">
+                    <p>Total price:
+                    <p id="price" style="text-decoration: underline;">5$</p>
+                    </p>
+                </div>
                 <button class="submit" onclick="location.href = '/create_qr_code_page/'">submit</button>
             </div>
-        </div> 
-         
-        {% if error %}<p class="error">{{error}}</p>{% endif %} 
- 
+        </div>
+
+        {% if error %}<p class="error">{{error}}</p>{% endif %}
+
     </div>
     </div>
 

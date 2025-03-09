@@ -5,18 +5,18 @@ let ccvInput = document.querySelector('.card-ccv-div')
 
 IMask(
     dateInput.querySelector('input'), {
-        mask: '00/00'
-    }
+    mask: '00/00'
+}
 )
 IMask(
     cardInput.querySelector('input'), {
-        mask: '0000 0000 0000 0000'
-    }
+    mask: '0000 0000 0000 0000'
+}
 )
 IMask(
     ccvInput.querySelector('input'), {
-        mask: '000'
-    }
+    mask: '000'
+}
 )
 
 let monthButton = document.getElementById('month')
@@ -26,11 +26,15 @@ let price = document.getElementById('price')
 monthButton.addEventListener('click', () => {
     price.textContent = '5$'
     monthButton.classList.add('active')
+    monthButton.setAttribute("name", "subscribe_type")
     yearButton.classList.remove('active')
+    yearButton.removeAttribute("name")
 })
 
 yearButton.addEventListener('click', () => {
     price.textContent = '48$'
     yearButton.classList.add('active')
+    yearButton.setAttribute("name", "subscribe_type")
     monthButton.classList.remove('active')
+    monthButton.removeAttribute("name")
 })

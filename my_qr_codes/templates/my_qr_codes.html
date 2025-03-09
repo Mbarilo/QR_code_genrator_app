@@ -36,6 +36,7 @@ Create QR-code
         <p class="name" id="name">Welcome {{username}}</p>
         <div class="user-info-div">
             <h2>subscribe: {{ subscribe }}</h2>
+            <h2>desktop: {{ user_now.desktop }}</h2>
             <a class="logout" onclick="location.href = '/logout_page/'">logout</a>
         </div>
     </div>
@@ -50,7 +51,7 @@ Create QR-code
 <main>
     <form method="post">
         {% csrf_token %}
-        {% if desktop == 1 and len_dektop_qr_codes != 0 %}
+        {% if desktop >= 10 and len_dektop_qr_codes != 0 %}
         <button class="subscribe" type="button">web</button>
         {% endif %}
 

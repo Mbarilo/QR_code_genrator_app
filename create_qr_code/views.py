@@ -83,7 +83,6 @@ def render_create_qr_code_page(request: HttpRequest):
 
 
         logotype = request.FILES.get("logo")  
-        print("\n\n\n\n\n\n\n\n\n",logotype, "\n\n\n\n\n\n\n\n\n\n")
 
         file_system = FileSystemStorage()
 
@@ -179,67 +178,117 @@ def render_create_qr_code_page(request: HttpRequest):
         elif user_now.subscribe == "pro":
             maximum_qr_codes = 100
 
+        qr_codes_non_desktop = QrCodes.objects.filter(user_id = username.id, desktop = 0)
 
 
+        if "http://" in qr_code_url or "https://" in qr_code_url:
+            if qr_code_name not in qrcode_names:
 
-        if qr_code_name not in qrcode_names:
-
-            if "check" not in request.POST:
-                if len(qr_codes) < maximum_qr_codes:
+                if "save" in request.POST:
+                    if len(qr_codes_non_desktop) < maximum_qr_codes:
 
 
-                    if "save" in request.POST:
-                        if logotype != None:
-                            
-                            logo = Image.open(logotype)
+                        if "save" in request.POST:
+                            print("ewqkgmweouj")
+                            if logotype != None:
+                                
+                                logo = Image.open(logotype)
 
-                            img_size = img.size[0]
-                            logo = logo.resize((100, 100))
+                                img_size = img.size[0]
+                                logo = logo.resize((100, 100))
 
-                            logo_x = (img_size - logo.size[0]) // 2
-                            logo_y = (img_size - logo.size[0]) // 2
-                            
-                            rgba = logo.convert("RGBA")
+                                logo_x = (img_size - logo.size[0]) // 2
+                                logo_y = (img_size - logo.size[0]) // 2
+                                
+                                rgba = logo.convert("RGBA")
 
-                            img.paste(logo, (logo_x, logo_y), rgba)
-                        if "http://" in qr_code_url or "https://" in qr_code_url:
-                            desktop_qr_codes = QrCodes.objects.filter(user = user, desktop = 1)
-                            
+                                img.paste(logo, (logo_x, logo_y), rgba)
+                                desktop_qr_codes = QrCodes.objects.filter(user = user, desktop = 1)
+                                
                             img.save(os.path.abspath(__file__ + f"/../../media/qr_codes/demo/{username}_qrcode.png"))
                             QrCodes.objects.create(name = qr_code_name, image = f"/../../media/qr_codes/image/{username}/web/{qr_code_name}.png", user = username, url = qr_code_url, desktop = False)
                             img.save(os.path.abspath(__file__ + f"/../../media/qr_codes/image/{username}/web/{qr_code_name}.png"))
-                        else:
-                            if user_now.desktop == True:
+                                
+                                
+
+                    
+                        return redirect("/create_qr_code_page/")
+
+                else:
+                    
+
+                    logo = Image.open(logotype)
+
+                    if logotype != None:
+
+                        img_size = img.size[0]
+                        logo = logo.resize((100, 100))
+
+                        logo_x = (img_size - logo.size[0]) // 2
+                        logo_y = (img_size - logo.size[0]) // 2
+                        
+                        rgba = logo.convert("RGBA")
+
+                        img.paste(logo, (logo_x, logo_y), rgba)
+
+                    img.save(os.path.abspath(__file__ + f"/../../media/qr_codes/demo/{username}_qrcode.png"))
+
+        elif "http://" not in qr_code_url or "https://" not in qr_code_url:
+            desktop_qr_codes = QrCodes.objects.filter(user = user, desktop = 1)
+            maximum_desktop_qr_codes = user_now.desktop
+            if qr_code_name not in qrcode_names:
+
+                if "check" not in request.POST:
+                    print(len(desktop_qr_codes), maximum_desktop_qr_codes)
+                    if len(desktop_qr_codes) < maximum_desktop_qr_codes:
+
+
+                        if "save" in request.POST:
+                            print("qeinjgoqeuj")
+                            if logotype != None:
+                                
+                                logo = Image.open(logotype)
+
+                                img_size = img.size[0]
+                                logo = logo.resize((100, 100))
+
+                                logo_x = (img_size - logo.size[0]) // 2
+                                logo_y = (img_size - logo.size[0]) // 2
+                                
+                                rgba = logo.convert("RGBA")
+
+                                img.paste(logo, (logo_x, logo_y), rgba)
+                                
+                            if user_now.desktop >= 1:
                                 img.save(os.path.abspath(__file__ + f"/../../media/qr_codes/demo/{username}_qrcode.png"))
                                 QrCodes.objects.create(name = qr_code_name, image = f"/../../media/qr_codes/image/{username}/desktop/{qr_code_name}.png", user = username, url = qr_code_url, desktop = True)
                                 img.save(os.path.abspath(__file__ + f"/../../media/qr_codes/image/{username}/desktop/{qr_code_name}.png"))
                             else:
                                 error = "This qr-code is desktop, buy desktop subcribe"
 
+                                
+
                     
-                    return redirect("/create_qr_code_page/")
+                        return redirect("/create_qr_code_page/")
 
-            else:
-
-                print(logo_path)
-                
-
-                logo = Image.open(logotype)
-
-                if logotype != None:
-
-                    img_size = img.size[0]
-                    logo = logo.resize((100, 100))
-
-                    logo_x = (img_size - logo.size[0]) // 2
-                    logo_y = (img_size - logo.size[0]) // 2
+                else:
                     
-                    rgba = logo.convert("RGBA")
 
-                    img.paste(logo, (logo_x, logo_y), rgba)
+                    logo = Image.open(logotype)
 
-                img.save(os.path.abspath(__file__ + f"/../../media/qr_codes/demo/{username}_qrcode.png"))
+                    if logotype != None:
 
+                        img_size = img.size[0]
+                        logo = logo.resize((100, 100))
 
-        return render(request, "create_qr_code.html", context = {"username" : username ,"qr_code_name" : logotype, "subscribe": subscribe, "error" : error, "all_qr_codes" : qr_codes})
-    return render(request, "create_qr_code.html", context = {"username" : username, "qr_code_name" : logotype, "subscribe": subscribe, "error" : error, "all_qr_codes" : qr_codes})
+                        logo_x = (img_size - logo.size[0]) // 2
+                        logo_y = (img_size - logo.size[0]) // 2
+                        
+                        rgba = logo.convert("RGBA")
+
+                        img.paste(logo, (logo_x, logo_y), rgba)
+
+                    img.save(os.path.abspath(__file__ + f"/../../media/qr_codes/demo/{username}_qrcode.png"))
+
+        return render(request, "create_qr_code.html", context = {"username" : username ,"qr_code_name" : logotype, "subscribe": subscribe, "error" : error, "all_qr_codes" : qr_codes, "user_now" : user_now})
+    return render(request, "create_qr_code.html", context = {"username" : username, "qr_code_name" : logotype, "subscribe": subscribe, "error" : error, "all_qr_codes" : qr_codes, "user_now" : user_now})

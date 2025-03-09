@@ -3,6 +3,7 @@ from .models import RandomCodes
 from django.core.mail import send_mail
 from django.contrib.auth.hashers import check_password
 from django.contrib.auth.models import User
+from create_qr_code.models import QrCodes
 from registration.models import Profile
 import random
 
@@ -92,16 +93,26 @@ def render_second_step_payment_page(request):
 def render_third_step_payment_page(request):
 
     username = request.user
-
     user = User.objects.get(username = username)
-
     profile = Profile.objects.get(user = user)
 
-    
+    qr_codes = QrCodes.objects.filter(user_id = username.id, desktop = 0)
+
+    if len(qr_codes) >= 10:
+        count = 0
+        for qr_code in qr_codes:
+            if count >= 10:
+                qr_code.workable = False
+                qr_code.save()
+            count += 1
+
 
     profile.subscribe = "standart"
 
     profile.save()
+
+
+
 
     error = ""
     return render(request, "third_step_payment.html", context = {"error" : error})

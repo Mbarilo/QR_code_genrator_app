@@ -34,7 +34,11 @@ def render_block_page(request, qr_id):
         qr_code_url = "this qr_code overdue"
         return render(request, "redirect.html", context= {"data_qr_code" : qr_code_url})
 
-    if qr_code.desktop:
-        return render(request, "redirect.html", context= {"data_qr_code" : qr_code_url})
+    if qr_code.workable:
+        if qr_code.desktop:
+            return render(request, "redirect.html", context= {"data_qr_code" : qr_code_url})
+        else:
+            return redirect(qr_code_url)
     else:
-        return redirect(qr_code_url)
+        qr_code_url = "this qr_code was block"
+        return render(request, "redirect.html", context= {"data_qr_code" : qr_code_url})

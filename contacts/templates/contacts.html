@@ -31,14 +31,15 @@ Create QR-code
     <div class="name_and_image">
         <p class="name" id="name">Welcome {{username}}</p>
         <div class="user-info-div">
-          <h2>subscribe: {{ subscribe }}</h2>
-          <a class="logout" onclick="location.href = '/logout_page/'">logout</a>
+            <h2>subscribe: {{ subscribe }}</h2>
+            <h2>desktop:{{ user_now.desktop }}</h2>
+            <a class="logout" onclick="location.href = '/logout_page/'">logout</a>
         </div>
     </div>
     {% else %}
-    <div class = "buttons">
-      <a class="my_qr_codes" onclick="location.href = '/registration/'">registration</a>
-      <a class="contacts" onclick="location.href = '/login_page/'">login</a>
+    <div class="buttons">
+        <a class="my_qr_codes" onclick="location.href = '/registration/'">registration</a>
+        <a class="contacts" onclick="location.href = '/login_page/'">login</a>
     </div>
     {% endif %}
 </header>
