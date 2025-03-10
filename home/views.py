@@ -5,6 +5,7 @@ from registration.models import Profile
 
 def render_home(request):
     subscribe = 'standart'
+    user_now = "none"
     if request.user.is_authenticated:
         username = request.user
         user_id = request.user.id
